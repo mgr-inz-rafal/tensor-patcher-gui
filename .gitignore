@@ -3,3 +3,5 @@
 ################################################################################
 
 /tensor-patcher-gui/bin/Debug
+/tensor-patcher-gui/obj/Debug
+/.vs/tensor-patcher-gui/v15/Server/sqlite3
