@@ -5,3 +5,6 @@
 /tensor-patcher-gui/bin/Debug
 /tensor-patcher-gui/obj/Debug
 /.vs/tensor-patcher-gui/v15/Server/sqlite3
+/.vs/tensor-patcher-gui/v15
+/tensor-patcher-gui/bin/Release
+/tensor-patcher-gui/obj/Release

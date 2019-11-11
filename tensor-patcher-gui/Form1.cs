@@ -12,11 +12,15 @@ namespace tensor_patcher_gui {
     public partial class MainForm : Form {
         public MainForm() {
             InitializeComponent();
-            SetupControls();
+            SetupForm();
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
 
+        }
+
+        private void button_LocateTensorAutomaticaly_Click(object sender, EventArgs e) {
+            MessageBox.Show(this, "Not implemented... yet!", "Can't do it...", MessageBoxButtons.OK, MessageBoxIcon.Hand);
         }
     }
 }
