@@ -18,11 +18,11 @@ namespace tensor_patcher_gui {
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-
+            ShowInfo("Ready for action!");
         }
 
         private void button_LocateTensorAutomaticaly_Click(object sender, EventArgs e) {
-            MessageBox.Show(this, "Not implemented... yet!", "Can't do it...", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            ShowError("Not implemented... yet!");
         }
 
         private Tuple<bool, String> ValidateTensorBinary(String file) {
@@ -37,9 +37,15 @@ namespace tensor_patcher_gui {
             return new Tuple<bool, String>(true, "");
         }
 
-        private void ReportError(String msg) {
+        private void ShowError(String msg) {
             this.sbar.Items[0].Text = msg;
+            this.sbar.Items[0].Image = tensor_patcher_gui.Properties.Resources.icon_error;
             SystemSounds.Hand.Play();
+        }
+
+        private void ShowInfo(String msg) {
+            this.sbar.Items[0].Text = msg;
+            this.sbar.Items[0].Image = tensor_patcher_gui.Properties.Resources.icon_ok;
         }
 
         private void button_LocateTensorManually_Click(object sender, EventArgs e) {
@@ -49,11 +55,11 @@ namespace tensor_patcher_gui {
 
             var valid = ValidateTensorBinary(openFileDialog.FileName);
             if (!valid.Item1) {
-                ReportError(valid.Item2);
+                ShowError(valid.Item2);
                 return;
             }
 
-            this.sbar.Items[0].Text = "Tensor.xex loaded successfully";
+            ShowInfo("Tensor.xex loaded successfully");
         }
     }
 }
