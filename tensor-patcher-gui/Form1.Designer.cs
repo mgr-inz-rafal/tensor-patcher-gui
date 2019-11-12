@@ -47,14 +47,15 @@
         private void InitializeComponent() {
             this.panel_MapBorder = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_LocateTensorAutomaticaly = new System.Windows.Forms.Button();
+            this.button_LocateTensorManually = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sbar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel_MapBorder.SuspendLayout();
             this.sbar.SuspendLayout();
             this.SuspendLayout();
@@ -64,8 +65,8 @@
             this.panel_MapBorder.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel_MapBorder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel_MapBorder.Controls.Add(this.label1);
-            this.panel_MapBorder.Controls.Add(this.button2);
-            this.panel_MapBorder.Controls.Add(this.button1);
+            this.panel_MapBorder.Controls.Add(this.button_LocateTensorAutomaticaly);
+            this.panel_MapBorder.Controls.Add(this.button_LocateTensorManually);
             this.panel_MapBorder.Location = new System.Drawing.Point(12, 12);
             this.panel_MapBorder.Name = "panel_MapBorder";
             this.panel_MapBorder.Size = new System.Drawing.Size(611, 616);
@@ -84,26 +85,27 @@
             this.label1.Text = "Tensor not loaded";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // button_LocateTensorAutomaticaly
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(177, 287);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(280, 34);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Autodetect \"Tensor.xex\" location...";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_LocateTensorAutomaticaly_Click);
+            this.button_LocateTensorAutomaticaly.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_LocateTensorAutomaticaly.Location = new System.Drawing.Point(177, 287);
+            this.button_LocateTensorAutomaticaly.Name = "button_LocateTensorAutomaticaly";
+            this.button_LocateTensorAutomaticaly.Size = new System.Drawing.Size(280, 34);
+            this.button_LocateTensorAutomaticaly.TabIndex = 2;
+            this.button_LocateTensorAutomaticaly.Text = "Autodetect \"Tensor.xex\" location...";
+            this.button_LocateTensorAutomaticaly.UseVisualStyleBackColor = true;
+            this.button_LocateTensorAutomaticaly.Click += new System.EventHandler(this.button_LocateTensorAutomaticaly_Click);
             // 
-            // button1
+            // button_LocateTensorManually
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(177, 247);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(280, 34);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Loacte \"Tensor.xex\"...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_LocateTensorManually.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_LocateTensorManually.Location = new System.Drawing.Point(177, 247);
+            this.button_LocateTensorManually.Name = "button_LocateTensorManually";
+            this.button_LocateTensorManually.Size = new System.Drawing.Size(280, 34);
+            this.button_LocateTensorManually.TabIndex = 1;
+            this.button_LocateTensorManually.Text = "Loacte \"Tensor.xex\"...";
+            this.button_LocateTensorManually.UseVisualStyleBackColor = true;
+            this.button_LocateTensorManually.Click += new System.EventHandler(this.button_LocateTensorManually_Click);
             // 
             // listView1
             // 
@@ -146,6 +148,13 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(61, 17);
             this.toolStripStatusLabel1.Text = "All correct";
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.DefaultExt = "xex";
+            this.openFileDialog.FileName = "Tensor.xex";
+            this.openFileDialog.Filter = "Atari executables (*.xex)|*.xex";
+            this.openFileDialog.Title = "Where is the Tensor.xex file?";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,9 +184,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.StatusStrip sbar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_LocateTensorManually;
+        private System.Windows.Forms.Button button_LocateTensorAutomaticaly;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 
