@@ -14,14 +14,19 @@ using System.Windows.Forms;
 
 namespace tensor_patcher_gui {
     public partial class MainForm : Form {
+        // Map
         private const int MAP_DIMENSION = 12;
         private const int MAP_DATA_BYTE_COUNT = MAP_DIMENSION * MAP_DIMENSION;
         private const int TOTAL_MAP_COUNT = 51;
         private const int TOTAL_MAP_DATA_SIZE = MAP_DATA_BYTE_COUNT * TOTAL_MAP_COUNT;
         private const int TILE_SIZE = 48;
 
-        private byte[] rawMapData;
+        // Toolbox
+        private const int TOTAL_BRICKS = 14;
+        private const int TOTAL_BRICK_ROWS = 2;
+        private const int TOOLBOX_TILE_SIZE = 42;
 
+        private byte[] rawMapData;
         private Cave[] caves = new Cave[TOTAL_MAP_COUNT];
         private Button[] mapTiles = new Button[MAP_DATA_BYTE_COUNT];
 
@@ -51,7 +56,7 @@ namespace tensor_patcher_gui {
 
             // Size validation would be enough
             var len = new System.IO.FileInfo(file).Length;
-            if(len != EXPECTED_FILE_SIZE) {
+            if (len != EXPECTED_FILE_SIZE) {
                 return new Tuple<bool, String>(false, String.Format("Incorrect file size ({1} bytes expected, {0} bytes found)", len, EXPECTED_FILE_SIZE));
             }
 
@@ -77,7 +82,7 @@ namespace tensor_patcher_gui {
         }
 
         private void ParseMapData() {
-            for(int i = 0; i < TOTAL_MAP_COUNT; ++i) {
+            for (int i = 0; i < TOTAL_MAP_COUNT; ++i) {
                 caves[i] = new Cave(String.Format("Map {0} title", i + 1));
                 caves[i].mapData = new byte[MAP_DATA_BYTE_COUNT];
                 Array.Copy(rawMapData, i * MAP_DATA_BYTE_COUNT, caves[i].mapData, 0, MAP_DATA_BYTE_COUNT);
@@ -85,8 +90,8 @@ namespace tensor_patcher_gui {
         }
 
         private void PopulateMapList() {
-            for(int i = 0; i < TOTAL_MAP_COUNT; ++i) {
-                var item = listCaves.Items.Add(String.Format("{0}", i+1));
+            for (int i = 0; i < TOTAL_MAP_COUNT; ++i) {
+                var item = listCaves.Items.Add(String.Format("{0}", i + 1));
                 item.SubItems.Add(caves[i].Name);
             }
             this.columnHeader3.Width = -2;
@@ -135,9 +140,73 @@ namespace tensor_patcher_gui {
             }
         }
 
+        private void CreateToolbox() {
+            for (int j = 0; j < TOTAL_BRICK_ROWS; ++j) {
+                for (int i = 0; i < TOTAL_BRICKS / TOTAL_BRICK_ROWS; ++i) {
+                    System.Windows.Forms.Button but = new System.Windows.Forms.Button();
+                    but.Top = 450 + j * (TOOLBOX_TILE_SIZE + 4);
+                    but.Left = 660 + i * (TOOLBOX_TILE_SIZE + 4);
+                    but.Height = TOOLBOX_TILE_SIZE;
+                    but.Width = TOOLBOX_TILE_SIZE;
+                    but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                    but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                    switch (i + j * (TOTAL_BRICKS / TOTAL_BRICK_ROWS)) {
+                        case 0:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05;
+                            break;
+                        case 1:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick06;
+                            break;
+                        case 2:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick07;
+                            break;
+                        case 3:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick08;
+                            break;
+                        case 4:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick09;
+                            break;
+                        case 5:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick10;
+                            break;
+                        case 6:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick11;
+                            break;
+                        case 7:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick12;
+                            break;
+                        case 8:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick13;
+                            break;
+                        case 9:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick14;
+                            break;
+                        case 10:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick15;
+                            break;
+                        case 11:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick16;
+                            break;
+                        case 12:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick17;
+                            break;
+                        case 13:
+                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick18;
+                            break;
+                    }
+                    //                but.Visible = false;
+                    but.MouseEnter += new System.EventHandler(this.button_MapTileMouseEnter);
+                    but.MouseLeave += new System.EventHandler(this.button_MapTileMouseLeave);
+                    //                but.Tag = i * MAP_DIMENSION + j;
+                    //                mapTiles[(int)but.Tag] = but;
+                    this.Controls.Add(but);
+                }
+            }
+        }
+
         private void ShowMapLayout(int index) {
-            for(int i = 0; i < MAP_DIMENSION; ++i) {
-                for(int j = 0; j < MAP_DIMENSION; ++j) {
+            for (int i = 0; i < MAP_DIMENSION; ++i) {
+                for (int j = 0; j < MAP_DIMENSION; ++j) {
                     var c = i * MAP_DIMENSION + j;
                     switch (caves[index].mapData[c]) {
                         case 5:
@@ -247,7 +316,7 @@ namespace tensor_patcher_gui {
         }
 
         private void listCaves_SelectedIndexChanged(object sender, EventArgs e) {
-            if(listCaves.SelectedIndices.Count == 0) {
+            if (listCaves.SelectedIndices.Count == 0) {
                 return;
             }
             var index = listCaves.SelectedIndices[0];

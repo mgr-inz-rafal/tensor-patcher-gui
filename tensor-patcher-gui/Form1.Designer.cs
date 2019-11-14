@@ -18,6 +18,7 @@
 
         private void SetupForm() {
             CreateMapTiles();
+            CreateToolbox();
             this.panel_MapBorder.SendToBack();
         }
 
