@@ -153,6 +153,26 @@ namespace tensor_patcher_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick_brown {
+            get {
+                object obj = ResourceManager.GetObject("brick_brown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick_pink {
+            get {
+                object obj = ResourceManager.GetObject("brick_pink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick05 {
             get {
                 object obj = ResourceManager.GetObject("brick05", resourceCulture);

@@ -40,6 +40,7 @@
             this.sbar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_MapBorder.SuspendLayout();
             this.sbar.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +146,14 @@
             this.openFileDialog.Filter = "Atari executables (*.xex)|*.xex";
             this.openFileDialog.Title = "Where is the Tensor.xex file?";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(647, 446);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(348, 182);
+            this.panel1.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +162,7 @@
             this.Controls.Add(this.sbar);
             this.Controls.Add(this.listCaves);
             this.Controls.Add(this.panel_MapBorder);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -178,6 +188,7 @@
         private System.Windows.Forms.Button button_LocateTensorAutomaticaly;
         private System.Windows.Forms.Label label_TensorLoadStatus;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

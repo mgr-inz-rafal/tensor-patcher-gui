@@ -155,60 +155,69 @@ namespace tensor_patcher_gui {
             //                but.Tag = i * MAP_DIMENSION + j;
             //                mapTiles[(int)but.Tag] = but;
             this.Controls.Add(but);
+            but.BringToFront();
         }
 
         private void CreateToolbox() {
+            var toolboxYPosition = Convert.ToInt32(458 + 2.5 * (TOOLBOX_TILE_SIZE + 4));
+            AddToolboxButton(660 + 0 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.ludek1);
+            AddToolboxButton(660 + 1 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle00);
+            AddToolboxButton(660 + 2 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle01);
+            AddToolboxButton(660 + 3 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.amygdala7);
+            AddToolboxButton(660 + 5 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_brown);
+            AddToolboxButton(660 + 6 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_pink);
+
             for (int j = 0; j < TOTAL_BRICK_ROWS; ++j) {
                 for (int i = 0; i < TOTAL_BRICKS / TOTAL_BRICK_ROWS; ++i) {
                     Bitmap bitmap;
                     switch (i + j * (TOTAL_BRICKS / TOTAL_BRICK_ROWS)) {
                         case 0:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick05;
+                            bitmap = Properties.Resources.brick05;
                             break;
                         case 1:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick06;
+                            bitmap = Properties.Resources.brick06;
                             break;
                         case 2:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick07;
+                            bitmap = Properties.Resources.brick07;
                             break;
                         case 3:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick08;
+                            bitmap = Properties.Resources.brick08;
                             break;
                         case 4:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick09;
+                            bitmap = Properties.Resources.brick09;
                             break;
                         case 5:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick10;
+                            bitmap = Properties.Resources.brick10;
                             break;
                         case 6:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick11;
+                            bitmap = Properties.Resources.brick11;
                             break;
                         case 7:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick12;
+                            bitmap = Properties.Resources.brick12;
                             break;
                         case 8:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick13;
+                            bitmap = Properties.Resources.brick13;
                             break;
                         case 9:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick14;
+                            bitmap = Properties.Resources.brick14;
                             break;
                         case 10:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick15;
+                            bitmap = Properties.Resources.brick15;
                             break;
                         case 11:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick16;
+                            bitmap = Properties.Resources.brick16;
                             break;
                         case 12:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick17;
+                            bitmap = Properties.Resources.brick17;
                             break;
                         case 13:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick18;
+                            bitmap = Properties.Resources.brick18;
                             break;
                         default:
-                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick_blank;
+                            bitmap = Properties.Resources.brick_blank;
                             break;
                     }
-                    AddToolboxButton(660 + i * (TOOLBOX_TILE_SIZE + 4), 450 + j * (TOOLBOX_TILE_SIZE + 4), bitmap);
+                    AddToolboxButton(660 + i * (TOOLBOX_TILE_SIZE + 4), 458 + j * (TOOLBOX_TILE_SIZE + 4), bitmap);
                 }
             }
 
@@ -221,103 +230,103 @@ namespace tensor_patcher_gui {
                     var c = i * MAP_DIMENSION + j;
                     switch (caves[index].mapData[c]) {
                         case 5:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick05;
                             break;
                         case 5 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick05p;
                             break;
                         case 6:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick06;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick06;
                             break;
                         case 6 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick06p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick06p;
                             break;
                         case 7:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick07;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick07;
                             break;
                         case 7 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick07p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick07p;
                             break;
                         case 8:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick08;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick08;
                             break;
                         case 8 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick08p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick08p;
                             break;
                         case 9:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick09;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick09;
                             break;
                         case 9 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick09p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick09p;
                             break;
                         case 10:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick10;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick10;
                             break;
                         case 10 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick10p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick10p;
                             break;
                         case 11:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick11;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick11;
                             break;
                         case 11 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick11p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick11p;
                             break;
                         case 12:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick12;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick12;
                             break;
                         case 12 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick12p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick12p;
                             break;
                         case 13:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick13;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick13;
                             break;
                         case 13 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick13p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick13p;
                             break;
                         case 14:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick14;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick14;
                             break;
                         case 14 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick14p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick14p;
                             break;
                         case 15:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick15;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick15;
                             break;
                         case 15 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick15p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick15p;
                             break;
                         case 16:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick16;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick16;
                             break;
                         case 16 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick16p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick16p;
                             break;
                         case 17:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick17;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick17;
                             break;
                         case 17 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick17p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick17p;
                             break;
                         case 18:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick18;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick18;
                             break;
                         case 18 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick18p;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick18p;
                             break;
                         case 131:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.obstacle00;
+                            mapTiles[c].BackgroundImage = Properties.Resources.obstacle00;
                             break;
                         case 132:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.obstacle01;
+                            mapTiles[c].BackgroundImage = Properties.Resources.obstacle01;
                             break;
                         case 1:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.ludek1;
+                            mapTiles[c].BackgroundImage = Properties.Resources.ludek1;
                             break;
                         case 2:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.amygdala7;
+                            mapTiles[c].BackgroundImage = Properties.Resources.amygdala7;
                             break;
                         default:
-                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick_blank;
+                            mapTiles[c].BackgroundImage = Properties.Resources.brick_blank;
                             break;
                     }
 
