@@ -38,6 +38,14 @@ namespace tensor_patcher_gui {
             ShowError("Not implemented... yet!");
         }
 
+        private void button_MapTileMouseEnter(object sender, EventArgs e) {
+            ((Button)sender).FlatStyle = FlatStyle.Popup;
+        }
+
+        private void button_MapTileMouseLeave(object sender, EventArgs e) {
+            ((Button)sender).FlatStyle = FlatStyle.Flat;
+        }
+
         private Tuple<bool, String> ValidateTensorBinary(String file) {
             const int EXPECTED_FILE_SIZE = 49506;
 
@@ -118,6 +126,8 @@ namespace tensor_patcher_gui {
                     but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                     but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                     but.Visible = false;
+                    but.MouseEnter += new System.EventHandler(this.button_MapTileMouseEnter);
+                    but.MouseLeave += new System.EventHandler(this.button_MapTileMouseLeave);
                     mapTiles[i* MAP_DIMENSION + j] = but;
                     this.Controls.Add(but);
                 }
