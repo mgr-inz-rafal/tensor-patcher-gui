@@ -128,7 +128,8 @@ namespace tensor_patcher_gui {
                     but.Visible = false;
                     but.MouseEnter += new System.EventHandler(this.button_MapTileMouseEnter);
                     but.MouseLeave += new System.EventHandler(this.button_MapTileMouseLeave);
-                    mapTiles[i* MAP_DIMENSION + j] = but;
+                    but.Tag = i * MAP_DIMENSION + j;
+                    mapTiles[(int)but.Tag] = but;
                     this.Controls.Add(but);
                 }
             }
@@ -222,6 +223,18 @@ namespace tensor_patcher_gui {
                             break;
                         case 18 + 64 + 64 + 64:
                             mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick18p;
+                            break;
+                        case 131:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.obstacle00;
+                            break;
+                        case 132:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.obstacle01;
+                            break;
+                        case 1:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.ludek1;
+                            break;
+                        case 2:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.amygdala7;
                             break;
                         default:
                             mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick_blank;

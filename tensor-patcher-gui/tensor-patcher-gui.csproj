@@ -174,5 +174,38 @@
   <ItemGroup>
     <None Include="Resources\brick_blank.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amygdala1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amygdala2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amygdala3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amygdala4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amygdala5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amygdala6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amygdala7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amygdala8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ludek1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obstacle00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obstacle01.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
