@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace tensor_patcher_gui {
     public partial class MainForm : Form {
         // Map
@@ -26,7 +25,43 @@ namespace tensor_patcher_gui {
         private const int TOTAL_BRICK_ROWS = 2;
         private const int TOOLBOX_TILE_SIZE = 42;
 
+        // TODO: Move consts and dictionaries to separate file
+        private static Dictionary<int, Bitmap> brownBricks = new Dictionary<int, Bitmap> {
+            { 0, Properties.Resources.brick05 },
+            { 1, Properties.Resources.brick06 },
+            { 2, Properties.Resources.brick07 },
+            { 3, Properties.Resources.brick08 },
+            { 4, Properties.Resources.brick09 },
+            { 5, Properties.Resources.brick10 },
+            { 6, Properties.Resources.brick11 },
+            { 7, Properties.Resources.brick12 },
+            { 8, Properties.Resources.brick13 },
+            { 9, Properties.Resources.brick14 },
+            { 10, Properties.Resources.brick15 },
+            { 11, Properties.Resources.brick16 },
+            { 12, Properties.Resources.brick17 },
+            { 13, Properties.Resources.brick18 },
+        };
+        private static Dictionary<int, Bitmap> pinkBricks = new Dictionary<int, Bitmap> {
+            { 0, Properties.Resources.brick05p },
+            { 1, Properties.Resources.brick06p },
+            { 2, Properties.Resources.brick07p },
+            { 3, Properties.Resources.brick08p },
+            { 4, Properties.Resources.brick09p },
+            { 5, Properties.Resources.brick10p },
+            { 6, Properties.Resources.brick11p },
+            { 7, Properties.Resources.brick12p },
+            { 8, Properties.Resources.brick13p },
+            { 9, Properties.Resources.brick14p },
+            { 10, Properties.Resources.brick15p },
+            { 11, Properties.Resources.brick16p },
+            { 12, Properties.Resources.brick17p },
+            { 13, Properties.Resources.brick18p },
+        };
+        private static Dictionary<int, Bitmap> currentBrickSet = brownBricks;
+
         private byte[] rawMapData;
+        private Button[] toolboxBrickButtons = new Button[TOTAL_BRICKS];
         private Cave[] caves = new Cave[TOTAL_MAP_COUNT];
         private Button[] mapTiles = new Button[MAP_DATA_BYTE_COUNT];
 
@@ -41,6 +76,18 @@ namespace tensor_patcher_gui {
 
         private void button_LocateTensorAutomaticaly_Click(object sender, EventArgs e) {
             ShowError("Not implemented... yet!");
+        }
+
+        private void button_SetBrownBrickSet_Click(object sender, EventArgs e) {
+            currentBrickSet = brownBricks;
+            RepaintBrickToolset();
+            ShowInfo("Brown brick set selected");
+        }
+
+        private void button_SetPinkBrickSet_Click(object sender, EventArgs e) {
+            currentBrickSet = pinkBricks;
+            RepaintBrickToolset();
+            ShowInfo("Pink brick set selected");
         }
 
         private void button_MapTileMouseEnter(object sender, EventArgs e) {
@@ -140,7 +187,7 @@ namespace tensor_patcher_gui {
             }
         }
 
-        private void AddToolboxButton(int x, int y, Bitmap pic) {
+        private Button AddToolboxButton(int x, int y, Bitmap pic) {
             System.Windows.Forms.Button but = new System.Windows.Forms.Button();
             but.Top = y;
             but.Left = x;
@@ -156,6 +203,7 @@ namespace tensor_patcher_gui {
             //                mapTiles[(int)but.Tag] = but;
             this.Controls.Add(but);
             but.BringToFront();
+            return but;
         }
 
         private void CreateToolbox() {
@@ -164,64 +212,31 @@ namespace tensor_patcher_gui {
             AddToolboxButton(660 + 1 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle00);
             AddToolboxButton(660 + 2 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle01);
             AddToolboxButton(660 + 3 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.amygdala7);
-            AddToolboxButton(660 + 5 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_brown);
-            AddToolboxButton(660 + 6 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_pink);
+            AddToolboxButton(660 + 5 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_brown)
+                .Click += new System.EventHandler(this.button_SetBrownBrickSet_Click);
+            AddToolboxButton(660 + 6 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_pink)
+                .Click += new System.EventHandler(this.button_SetPinkBrickSet_Click);
 
+            AddToolboxBrickButtons();
+        }
+
+        private void RepaintBrickToolset() {
             for (int j = 0; j < TOTAL_BRICK_ROWS; ++j) {
                 for (int i = 0; i < TOTAL_BRICKS / TOTAL_BRICK_ROWS; ++i) {
-                    Bitmap bitmap;
-                    switch (i + j * (TOTAL_BRICKS / TOTAL_BRICK_ROWS)) {
-                        case 0:
-                            bitmap = Properties.Resources.brick05;
-                            break;
-                        case 1:
-                            bitmap = Properties.Resources.brick06;
-                            break;
-                        case 2:
-                            bitmap = Properties.Resources.brick07;
-                            break;
-                        case 3:
-                            bitmap = Properties.Resources.brick08;
-                            break;
-                        case 4:
-                            bitmap = Properties.Resources.brick09;
-                            break;
-                        case 5:
-                            bitmap = Properties.Resources.brick10;
-                            break;
-                        case 6:
-                            bitmap = Properties.Resources.brick11;
-                            break;
-                        case 7:
-                            bitmap = Properties.Resources.brick12;
-                            break;
-                        case 8:
-                            bitmap = Properties.Resources.brick13;
-                            break;
-                        case 9:
-                            bitmap = Properties.Resources.brick14;
-                            break;
-                        case 10:
-                            bitmap = Properties.Resources.brick15;
-                            break;
-                        case 11:
-                            bitmap = Properties.Resources.brick16;
-                            break;
-                        case 12:
-                            bitmap = Properties.Resources.brick17;
-                            break;
-                        case 13:
-                            bitmap = Properties.Resources.brick18;
-                            break;
-                        default:
-                            bitmap = Properties.Resources.brick_blank;
-                            break;
-                    }
-                    AddToolboxButton(660 + i * (TOOLBOX_TILE_SIZE + 4), 458 + j * (TOOLBOX_TILE_SIZE + 4), bitmap);
+                    var index = i + j * (TOTAL_BRICKS / TOTAL_BRICK_ROWS);
+                    toolboxBrickButtons[index].BackgroundImage = currentBrickSet[index];
                 }
             }
+        }
 
-
+        private void AddToolboxBrickButtons() {
+            for (int j = 0; j < TOTAL_BRICK_ROWS; ++j) {
+                for (int i = 0; i < TOTAL_BRICKS / TOTAL_BRICK_ROWS; ++i) {
+                    var index = i + j * (TOTAL_BRICKS / TOTAL_BRICK_ROWS);
+                    toolboxBrickButtons[index] =
+                        AddToolboxButton(660 + i * (TOOLBOX_TILE_SIZE + 4), 458 + j * (TOOLBOX_TILE_SIZE + 4), currentBrickSet[index]);
+                }
+            }
         }
 
         private void ShowMapLayout(int index) {
