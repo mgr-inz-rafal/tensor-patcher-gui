@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,16 @@ using System.Windows.Forms;
 
 namespace tensor_patcher_gui {
     public partial class MainForm : Form {
-        const int MAP_DIMENSION = 12;
-        const int MAP_DATA_BYTE_COUNT = MAP_DIMENSION * MAP_DIMENSION;
-        const int TOTAL_MAP_COUNT = 51;
-        const int TOTAL_MAP_DATA_SIZE = MAP_DATA_BYTE_COUNT * TOTAL_MAP_COUNT;
+        private const int MAP_DIMENSION = 12;
+        private const int MAP_DATA_BYTE_COUNT = MAP_DIMENSION * MAP_DIMENSION;
+        private const int TOTAL_MAP_COUNT = 51;
+        private const int TOTAL_MAP_DATA_SIZE = MAP_DATA_BYTE_COUNT * TOTAL_MAP_COUNT;
+        private const int TILE_SIZE = 48;
 
-        byte[] rawMapData;
+        private byte[] rawMapData;
 
-        Cave[] caves = new Cave[TOTAL_MAP_COUNT];
+        private Cave[] caves = new Cave[TOTAL_MAP_COUNT];
+        private Button[] mapTiles = new Button[MAP_DATA_BYTE_COUNT];
 
         public MainForm() {
             InitializeComponent();
@@ -68,7 +71,8 @@ namespace tensor_patcher_gui {
         private void ParseMapData() {
             for(int i = 0; i < TOTAL_MAP_COUNT; ++i) {
                 caves[i] = new Cave(String.Format("Map {0} title", i + 1));
-//                Array.Copy(rawMapData, i * MAP_DATA_BYTE_COUNT, caves[i].mapData, 0, MAP_DATA_BYTE_COUNT);
+                caves[i].mapData = new byte[MAP_DATA_BYTE_COUNT];
+                Array.Copy(rawMapData, i * MAP_DATA_BYTE_COUNT, caves[i].mapData, 0, MAP_DATA_BYTE_COUNT);
             }
         }
 
@@ -96,6 +100,128 @@ namespace tensor_patcher_gui {
             PopulateMapList();
 
             ShowInfo("Tensor.xex loaded successfully");
+        }
+
+        private void CreateMapTiles() {
+            for (int i = 0; i < MAP_DIMENSION; ++i) {
+                for (int j = 0; j < MAP_DIMENSION; ++j) {
+                    System.Windows.Forms.Button but = new System.Windows.Forms.Button();
+                    but.Top = 32 + i * TILE_SIZE;
+                    but.Left = 32 + j * TILE_SIZE;
+                    but.Height = TILE_SIZE;
+                    but.Width = TILE_SIZE;
+//                    but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05;
+                    but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                    but.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+                    but.Visible = false;
+                    mapTiles[i* MAP_DIMENSION + j] = but;
+                    this.Controls.Add(but);
+                }
+            }
+        }
+
+        private void ShowMapLayout(int index) {
+            for(int i = 0; i < MAP_DIMENSION; ++i) {
+                for(int j = 0; j < MAP_DIMENSION; ++j) {
+                    var c = i * MAP_DIMENSION + j;
+                    switch (caves[index].mapData[c]) {
+                        case 5:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05;
+                            break;
+                        case 5 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05p;
+                            break;
+                        case 6:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick06;
+                            break;
+                        case 6 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick06p;
+                            break;
+                        case 7:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick07;
+                            break;
+                        case 7 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick07p;
+                            break;
+                        case 8:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick08;
+                            break;
+                        case 8 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick08p;
+                            break;
+                        case 9:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick09;
+                            break;
+                        case 9 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick09p;
+                            break;
+                        case 10:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick10;
+                            break;
+                        case 10 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick10p;
+                            break;
+                        case 11:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick11;
+                            break;
+                        case 11 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick11p;
+                            break;
+                        case 12:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick12;
+                            break;
+                        case 12 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick12p;
+                            break;
+                        case 13:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick13;
+                            break;
+                        case 13 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick13p;
+                            break;
+                        case 14:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick14;
+                            break;
+                        case 14 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick14p;
+                            break;
+                        case 15:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick15;
+                            break;
+                        case 15 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick15p;
+                            break;
+                        case 16:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick16;
+                            break;
+                        case 16 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick16p;
+                            break;
+                        case 17:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick17;
+                            break;
+                        case 17 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick17p;
+                            break;
+                        case 18:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick18;
+                            break;
+                        case 18 + 64 + 64 + 64:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick18p;
+                            break;
+                    }
+
+                    mapTiles[c].Visible = true;
+                }
+            }
+        }
+
+        private void listCaves_SelectedIndexChanged(object sender, EventArgs e) {
+            if(listCaves.SelectedIndices.Count == 0) {
+                return;
+            }
+            var index = listCaves.SelectedIndices[0];
+            ShowMapLayout(index);
         }
     }
 }

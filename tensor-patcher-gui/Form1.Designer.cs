@@ -16,25 +16,8 @@
             base.Dispose(disposing);
         }
 
-        const int TILE_SIZE = 48;
-
-        private void CreateMapTiles() {
-            for (int i = 0; i < 12; ++i) {
-                for (int j = 0; j < 12; ++j) {
-                    System.Windows.Forms.Button but = new System.Windows.Forms.Button();
-                    but.Top = 32 + i * TILE_SIZE;
-                    but.Left = 32 + j * TILE_SIZE;
-                    but.Height = TILE_SIZE;
-                    but.Width = TILE_SIZE;
-                    but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05;
-                    but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-                    but.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-                    this.Controls.Add(but);
-                }
-            }
-        }
-
         private void SetupForm() {
+            CreateMapTiles();
             this.panel_MapBorder.SendToBack();
         }
 
@@ -123,6 +106,7 @@
             this.listCaves.TabIndex = 2;
             this.listCaves.UseCompatibleStateImageBehavior = false;
             this.listCaves.View = System.Windows.Forms.View.Details;
+            this.listCaves.SelectedIndexChanged += new System.EventHandler(this.listCaves_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
