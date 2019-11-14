@@ -110,9 +110,8 @@ namespace tensor_patcher_gui {
                     but.Left = 32 + j * TILE_SIZE;
                     but.Height = TILE_SIZE;
                     but.Width = TILE_SIZE;
-//                    but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05;
                     but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-                    but.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+                    but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                     but.Visible = false;
                     mapTiles[i* MAP_DIMENSION + j] = but;
                     this.Controls.Add(but);
@@ -208,6 +207,9 @@ namespace tensor_patcher_gui {
                             break;
                         case 18 + 64 + 64 + 64:
                             mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick18p;
+                            break;
+                        default:
+                            mapTiles[c].BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick_blank;
                             break;
                     }
 
