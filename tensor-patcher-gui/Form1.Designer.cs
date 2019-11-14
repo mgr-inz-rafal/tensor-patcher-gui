@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel_MapBorder = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_TensorLoadStatus = new System.Windows.Forms.Label();
             this.button_LocateTensorAutomaticaly = new System.Windows.Forms.Button();
             this.button_LocateTensorManually = new System.Windows.Forms.Button();
             this.listCaves = new System.Windows.Forms.ListView();
@@ -47,7 +47,7 @@
             // 
             this.panel_MapBorder.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel_MapBorder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_MapBorder.Controls.Add(this.label1);
+            this.panel_MapBorder.Controls.Add(this.label_TensorLoadStatus);
             this.panel_MapBorder.Controls.Add(this.button_LocateTensorAutomaticaly);
             this.panel_MapBorder.Controls.Add(this.button_LocateTensorManually);
             this.panel_MapBorder.Location = new System.Drawing.Point(12, 12);
@@ -55,18 +55,18 @@
             this.panel_MapBorder.Size = new System.Drawing.Size(611, 616);
             this.panel_MapBorder.TabIndex = 1;
             // 
-            // label1
+            // label_TensorLoadStatus
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(117, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(400, 41);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tensor not loaded";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_TensorLoadStatus.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label_TensorLoadStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label_TensorLoadStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_TensorLoadStatus.ForeColor = System.Drawing.Color.Red;
+            this.label_TensorLoadStatus.Location = new System.Drawing.Point(117, 143);
+            this.label_TensorLoadStatus.Name = "label_TensorLoadStatus";
+            this.label_TensorLoadStatus.Size = new System.Drawing.Size(400, 41);
+            this.label_TensorLoadStatus.TabIndex = 3;
+            this.label_TensorLoadStatus.Text = "Tensor not loaded";
+            this.label_TensorLoadStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button_LocateTensorAutomaticaly
             // 
@@ -175,7 +175,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button button_LocateTensorManually;
         private System.Windows.Forms.Button button_LocateTensorAutomaticaly;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_TensorLoadStatus;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

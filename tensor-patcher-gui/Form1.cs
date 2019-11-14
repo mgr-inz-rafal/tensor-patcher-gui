@@ -99,6 +99,11 @@ namespace tensor_patcher_gui {
             ParseMapData();
             PopulateMapList();
 
+            label_TensorLoadStatus.Text = "Select map and enjoy ➔";
+            label_TensorLoadStatus.ForeColor = Color.Green;
+            button_LocateTensorAutomaticaly.Visible = false;
+            button_LocateTensorManually.Visible = false;
+
             ShowInfo("Tensor.xex loaded successfully");
         }
 
