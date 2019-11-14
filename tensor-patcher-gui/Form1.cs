@@ -140,68 +140,79 @@ namespace tensor_patcher_gui {
             }
         }
 
+        private void AddToolboxButton(int x, int y, Bitmap pic) {
+            System.Windows.Forms.Button but = new System.Windows.Forms.Button();
+            but.Top = y;
+            but.Left = x;
+            but.Height = TOOLBOX_TILE_SIZE;
+            but.Width = TOOLBOX_TILE_SIZE;
+            but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            but.BackgroundImage = pic;
+            but.MouseEnter += new System.EventHandler(this.button_MapTileMouseEnter);
+            but.MouseLeave += new System.EventHandler(this.button_MapTileMouseLeave);
+            //                but.Visible = false;
+            //                but.Tag = i * MAP_DIMENSION + j;
+            //                mapTiles[(int)but.Tag] = but;
+            this.Controls.Add(but);
+        }
+
         private void CreateToolbox() {
             for (int j = 0; j < TOTAL_BRICK_ROWS; ++j) {
                 for (int i = 0; i < TOTAL_BRICKS / TOTAL_BRICK_ROWS; ++i) {
-                    System.Windows.Forms.Button but = new System.Windows.Forms.Button();
-                    but.Top = 450 + j * (TOOLBOX_TILE_SIZE + 4);
-                    but.Left = 660 + i * (TOOLBOX_TILE_SIZE + 4);
-                    but.Height = TOOLBOX_TILE_SIZE;
-                    but.Width = TOOLBOX_TILE_SIZE;
-                    but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-                    but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                    Bitmap bitmap;
                     switch (i + j * (TOTAL_BRICKS / TOTAL_BRICK_ROWS)) {
                         case 0:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick05;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick05;
                             break;
                         case 1:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick06;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick06;
                             break;
                         case 2:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick07;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick07;
                             break;
                         case 3:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick08;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick08;
                             break;
                         case 4:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick09;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick09;
                             break;
                         case 5:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick10;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick10;
                             break;
                         case 6:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick11;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick11;
                             break;
                         case 7:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick12;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick12;
                             break;
                         case 8:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick13;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick13;
                             break;
                         case 9:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick14;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick14;
                             break;
                         case 10:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick15;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick15;
                             break;
                         case 11:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick16;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick16;
                             break;
                         case 12:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick17;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick17;
                             break;
                         case 13:
-                            but.BackgroundImage = global::tensor_patcher_gui.Properties.Resources.brick18;
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick18;
+                            break;
+                        default:
+                            bitmap = global::tensor_patcher_gui.Properties.Resources.brick_blank;
                             break;
                     }
-                    //                but.Visible = false;
-                    but.MouseEnter += new System.EventHandler(this.button_MapTileMouseEnter);
-                    but.MouseLeave += new System.EventHandler(this.button_MapTileMouseLeave);
-                    //                but.Tag = i * MAP_DIMENSION + j;
-                    //                mapTiles[(int)but.Tag] = but;
-                    this.Controls.Add(but);
+                    AddToolboxButton(660 + i * (TOOLBOX_TILE_SIZE + 4), 450 + j * (TOOLBOX_TILE_SIZE + 4), bitmap);
                 }
             }
+
+
         }
 
         private void ShowMapLayout(int index) {
