@@ -72,7 +72,7 @@ namespace tensor_patcher_gui {
         private void button_MapTileButton_Click(object sender, EventArgs e) {
             Button b = (Button)sender;
             ButtonTag t = (ButtonTag)b.Tag;
-            if(selectedCaveByte != null) {
+            if (selectedCaveByte != null) {
                 t.CaveByte = selectedCaveByte;
                 b.BackgroundImage = Constants.caveByteMap[selectedCaveByte.Value];
             }
@@ -232,7 +232,7 @@ namespace tensor_patcher_gui {
             for (int j = 0; j < Constants.TOTAL_BRICK_ROWS; ++j) {
                 for (int i = 0; i < Constants.TOTAL_BRICKS / Constants.TOTAL_BRICK_ROWS; ++i) {
                     var index = i + j * (Constants.TOTAL_BRICKS / Constants.TOTAL_BRICK_ROWS);
-                    Button b = AddToolboxButton(660 + i * (Constants.TOOLBOX_TILE_SIZE + 4), 458 + j * (Constants.TOOLBOX_TILE_SIZE + 4), currentBrickSet[index]);
+                    Button b = AddToolboxButton(660 + i * (Constants.TOOLBOX_TILE_SIZE + 4), 458 + j * (Constants.TOOLBOX_TILE_SIZE + 4), currentBrickSet[index], Convert.ToByte(index + 5));
                     b.Click += new System.EventHandler(this.button_ToolboxButton_Click);
                     toolboxBrickButtons[index] = b;
                 }
