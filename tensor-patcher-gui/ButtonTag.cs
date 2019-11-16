@@ -5,13 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace tensor_patcher_gui {
-    class ToolboxButtonTag {
+    class ButtonTag {
         public int X;
         public int Y;
+        public int Index;
+        public byte? CaveByte;
 
-        public ToolboxButtonTag(int x, int y) {
+        public ButtonTag(int x, int y, int index = -1, byte? caveByte = null) {
             X = x;
             Y = y;
+            Index = index;
+            CaveByte = caveByte;
         }
     };
 }

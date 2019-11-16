@@ -79,6 +79,21 @@ namespace tensor_patcher_gui {
             { 12, Properties.Resources.brick17a },
             { 13, Properties.Resources.brick18a },
         };
+    
+        public static string CaveByteToName(byte? b) {
+            switch (b) {
+                case 1:
+                    return "Docent Trzaskowski";
+                case 2:
+                    return "Amygdala";
+                case 131:
+                    return "Round obstacle";
+                case 132:
+                    return "Square obstacle";
+            }
+            return "A nice brick";
+        }
+
         public static Dictionary<byte, Bitmap> caveByteMap = new Dictionary<byte, Bitmap> {
             { 5, Properties.Resources.brick05 },
             { 5 + 64, Properties.Resources.brick05a },

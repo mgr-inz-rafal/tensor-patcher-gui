@@ -13,6 +13,7 @@ namespace tensor_patcher_gui {
         private Button[] toolboxBrickButtons = new Button[Constants.TOTAL_BRICKS];
         private Cave[] caves = new Cave[Constants.TOTAL_MAP_COUNT];
         private Button[] mapTiles = new Button[Constants.MAP_DATA_BYTE_COUNT];
+        private byte? selectedCaveByte;
 
         public MainForm() {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace tensor_patcher_gui {
 
         private void SetToolboxSelectionMarker(object sender) {
             Button b = (Button)sender;
-            ToolboxButtonTag tag = (ToolboxButtonTag)b.Tag;
+            ButtonTag tag = (ButtonTag)b.Tag;
             picSelection.Left = tag.X + 4;
             picSelection.Top = tag.Y + 4;
         }
@@ -60,8 +61,21 @@ namespace tensor_patcher_gui {
         }
 
         private void button_ToolboxButton_Click(object sender, EventArgs e) {
+            Button b = (Button)sender;
+            ButtonTag t = (ButtonTag)b.Tag;
+            selectedCaveByte = t.CaveByte;
+            String name = Constants.CaveByteToName(selectedCaveByte);
+            ShowInfo($"Element selected ({name})");
             SetToolboxSelectionMarker(sender);
-            ShowInfo("Element selected");
+        }
+
+        private void button_MapTileButton_Click(object sender, EventArgs e) {
+            Button b = (Button)sender;
+            ButtonTag t = (ButtonTag)b.Tag;
+            if(selectedCaveByte != null) {
+                t.CaveByte = selectedCaveByte;
+                b.BackgroundImage = Constants.caveByteMap[selectedCaveByte.Value];
+            }
         }
 
         private void button_MapTileMouseEnter(object sender, EventArgs e) {
@@ -86,13 +100,13 @@ namespace tensor_patcher_gui {
 
         private void ShowError(String msg) {
             this.sbar.Items[0].Text = msg;
-            this.sbar.Items[0].Image = tensor_patcher_gui.Properties.Resources.icon_error;
+            this.sbar.Items[0].Image = Properties.Resources.icon_error;
             SystemSounds.Hand.Play();
         }
 
         private void ShowInfo(String msg) {
             this.sbar.Items[0].Text = msg;
-            this.sbar.Items[0].Image = tensor_patcher_gui.Properties.Resources.icon_ok;
+            this.sbar.Items[0].Image = Properties.Resources.icon_ok;
         }
 
         private void LoadTensor(String fileName) {
@@ -154,28 +168,29 @@ namespace tensor_patcher_gui {
                     but.Visible = false;
                     but.MouseEnter += new System.EventHandler(this.button_MapTileMouseEnter);
                     but.MouseLeave += new System.EventHandler(this.button_MapTileMouseLeave);
-                    but.Tag = i * Constants.MAP_DIMENSION + j;
-                    mapTiles[(int)but.Tag] = but;
+                    but.Tag = new ButtonTag(but.Left, but.Top, i * Constants.MAP_DIMENSION + j);
+                    but.Click += new System.EventHandler(this.button_MapTileButton_Click);
+
+                    mapTiles[((ButtonTag)but.Tag).Index] = but;
+
                     this.Controls.Add(but);
                 }
             }
         }
 
-        private Button AddToolboxButton(int x, int y, Bitmap pic, float scale = 1.0f) {
-            System.Windows.Forms.Button but = new System.Windows.Forms.Button();
-            but.Top = y;
-            but.Left = x;
-            but.Height = Constants.TOOLBOX_TILE_SIZE;
-            but.Width = Convert.ToInt32(Constants.TOOLBOX_TILE_SIZE * scale);
-            but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            but.BackgroundImage = pic;
+        private Button AddToolboxButton(int x, int y, Bitmap pic, byte? caveByte = null, float scale = 1.0f) {
+            System.Windows.Forms.Button but = new System.Windows.Forms.Button {
+                Top = y,
+                Left = x,
+                Height = Constants.TOOLBOX_TILE_SIZE,
+                Width = Convert.ToInt32(Constants.TOOLBOX_TILE_SIZE * scale),
+                BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch,
+                FlatStyle = System.Windows.Forms.FlatStyle.Flat,
+                BackgroundImage = pic,
+                Tag = new ButtonTag(x, y, -1, caveByte)
+            };
             but.MouseEnter += new System.EventHandler(this.button_MapTileMouseEnter);
             but.MouseLeave += new System.EventHandler(this.button_MapTileMouseLeave);
-            //                but.Visible = false;
-            //                but.Tag = i * MAP_DIMENSION + j;
-            //                mapTiles[(int)but.Tag] = but;
-            but.Tag = new ToolboxButtonTag(x, y);
             this.Controls.Add(but);
             but.BringToFront();
             return but;
@@ -183,22 +198,22 @@ namespace tensor_patcher_gui {
 
         private void CreateToolbox() {
             var toolboxYPosition = Convert.ToInt32(458 + 2.5 * (Constants.TOOLBOX_TILE_SIZE + 4));
-            AddToolboxButton(660 + 0 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.ludek1)
+            AddToolboxButton(660 + 0 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.ludek1, 1)
                 .Click += new System.EventHandler(this.button_ToolboxButton_Click);
-            AddToolboxButton(660 + 1 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle00)
+            AddToolboxButton(660 + 1 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle00, 131)
                 .Click += new System.EventHandler(this.button_ToolboxButton_Click);
-            AddToolboxButton(660 + 2 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle01)
+            AddToolboxButton(660 + 2 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle01, 132)
                 .Click += new System.EventHandler(this.button_ToolboxButton_Click);
-            AddToolboxButton(660 + 3 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.amygdala7)
+            AddToolboxButton(660 + 3 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.amygdala7, 2)
                 .Click += new System.EventHandler(this.button_ToolboxButton_Click);
 
-            AddToolboxButton(660 + 4 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_brown, 0.66f)
+            AddToolboxButton(660 + 4 * (Constants.TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_brown, null, 0.66f)
                 .Click += new System.EventHandler(this.button_SetBrownBrickSet_Click);
-            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f) * (Constants.TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_pink, 0.66f)
+            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f) * (Constants.TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_pink, null, 0.66f)
                 .Click += new System.EventHandler(this.button_SetPinkBrickSet_Click);
-            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f * 2) * (Constants.TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_blue, 0.66f)
+            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f * 2) * (Constants.TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_blue, null, 0.66f)
                 .Click += new System.EventHandler(this.button_SetBlueBrickSet_Click);
-            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f * 3) * (Constants.TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_amygdala, 0.66f)
+            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f * 3) * (Constants.TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_amygdala, null, 0.66f)
                 .Click += new System.EventHandler(this.button_SetAmygdalaBrickSet_Click);
 
             AddToolboxBrickButtons();
@@ -229,6 +244,7 @@ namespace tensor_patcher_gui {
                 for (int j = 0; j < Constants.MAP_DIMENSION; ++j) {
                     var c = i * Constants.MAP_DIMENSION + j;
                     var myByte = caves[index].mapData[c];
+                    ((ButtonTag)mapTiles[c].Tag).CaveByte = myByte;
                     mapTiles[c].BackgroundImage = Constants.caveByteMap[caves[index].mapData[c]];
                     mapTiles[c].Visible = true;
                 }
