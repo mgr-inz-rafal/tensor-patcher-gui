@@ -69,12 +69,31 @@ namespace tensor_patcher_gui {
             SetToolboxSelectionMarker(sender);
         }
 
+        private bool IsBrick(byte? caveByte) {
+            if(caveByte == null) {
+                return false;
+            }
+            return caveByte != 1 && caveByte != 2 && caveByte != 131 && caveByte != 132 && caveByte != 0;
+        }
+
         private void button_MapTileButton_Click(object sender, EventArgs e) {
             Button b = (Button)sender;
             ButtonTag t = (ButtonTag)b.Tag;
             if (selectedCaveByte != null) {
-                t.CaveByte = selectedCaveByte;
-                b.BackgroundImage = Constants.caveByteMap[selectedCaveByte.Value];
+                byte caveByteModifier = 0;
+                if(IsBrick(selectedCaveByte)) {
+                    if (currentBrickSet == Constants.pinkBricks) {
+                        caveByteModifier = 64 + 64 + 64;
+                    }
+                    else if (currentBrickSet == Constants.blueBricks) {
+                        caveByteModifier = 64 + 64;
+                    }
+                    else if (currentBrickSet == Constants.amygdalaBricks) {
+                        caveByteModifier = 64;
+                    }
+                }
+                t.CaveByte = Convert.ToByte(selectedCaveByte + caveByteModifier);
+                b.BackgroundImage = Constants.caveByteMap[t.CaveByte.Value];
             }
         }
 
