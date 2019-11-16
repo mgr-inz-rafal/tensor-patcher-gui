@@ -164,6 +164,7 @@ namespace tensor_patcher_gui {
         public MainForm() {
             InitializeComponent();
             SetupForm();
+            picSelection.BringToFront();
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
@@ -172,6 +173,13 @@ namespace tensor_patcher_gui {
 
         private void button_LocateTensorAutomaticaly_Click(object sender, EventArgs e) {
             ShowError("Not implemented... yet!");
+        }
+
+        private void SetToolboxSelectionMarker(object sender) {
+            Button b = (Button)sender;
+            ToolboxButtonTag tag = (ToolboxButtonTag)b.Tag;
+            picSelection.Left = tag.X + 4;
+            picSelection.Top = tag.Y + 4;
         }
 
         private void button_SetBrownBrickSet_Click(object sender, EventArgs e) {
@@ -196,6 +204,11 @@ namespace tensor_patcher_gui {
             currentBrickSet = amygdalaBricks;
             RepaintBrickToolset();
             ShowInfo("Amygdala-colored brick set selected");
+        }
+
+        private void button_ToolboxButton_Click(object sender, EventArgs e) {
+            SetToolboxSelectionMarker(sender);
+            ShowInfo("Element selected");
         }
 
         private void button_MapTileMouseEnter(object sender, EventArgs e) {
@@ -309,6 +322,7 @@ namespace tensor_patcher_gui {
             //                but.Visible = false;
             //                but.Tag = i * MAP_DIMENSION + j;
             //                mapTiles[(int)but.Tag] = but;
+            but.Tag = new ToolboxButtonTag(x, y);
             this.Controls.Add(but);
             but.BringToFront();
             return but;
@@ -316,11 +330,15 @@ namespace tensor_patcher_gui {
 
         private void CreateToolbox() {
             var toolboxYPosition = Convert.ToInt32(458 + 2.5 * (TOOLBOX_TILE_SIZE + 4));
-            AddToolboxButton(660 + 0 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.ludek1);
-            AddToolboxButton(660 + 1 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle00);
-            AddToolboxButton(660 + 2 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle01);
-            AddToolboxButton(660 + 3 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.amygdala7);
-            
+            AddToolboxButton(660 + 0 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.ludek1)
+                .Click += new System.EventHandler(this.button_ToolboxButton_Click);
+            AddToolboxButton(660 + 1 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle00)
+                .Click += new System.EventHandler(this.button_ToolboxButton_Click);
+            AddToolboxButton(660 + 2 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle01)
+                .Click += new System.EventHandler(this.button_ToolboxButton_Click);
+            AddToolboxButton(660 + 3 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.amygdala7)
+                .Click += new System.EventHandler(this.button_ToolboxButton_Click);
+
             AddToolboxButton(660 + 4 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_brown, 0.66f)
                 .Click += new System.EventHandler(this.button_SetBrownBrickSet_Click);
             AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f) * (TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_pink, 0.66f)
@@ -346,8 +364,9 @@ namespace tensor_patcher_gui {
             for (int j = 0; j < TOTAL_BRICK_ROWS; ++j) {
                 for (int i = 0; i < TOTAL_BRICKS / TOTAL_BRICK_ROWS; ++i) {
                     var index = i + j * (TOTAL_BRICKS / TOTAL_BRICK_ROWS);
-                    toolboxBrickButtons[index] =
-                        AddToolboxButton(660 + i * (TOOLBOX_TILE_SIZE + 4), 458 + j * (TOOLBOX_TILE_SIZE + 4), currentBrickSet[index]);
+                    Button b = AddToolboxButton(660 + i * (TOOLBOX_TILE_SIZE + 4), 458 + j * (TOOLBOX_TILE_SIZE + 4), currentBrickSet[index]);
+                    b.Click += new System.EventHandler(this.button_ToolboxButton_Click);
+                    toolboxBrickButtons[index] = b;
                 }
             }
         }

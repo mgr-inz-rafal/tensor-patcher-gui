@@ -41,8 +41,10 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picSelection = new System.Windows.Forms.PictureBox();
             this.panel_MapBorder.SuspendLayout();
             this.sbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSelection)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_MapBorder
@@ -154,11 +156,21 @@
             this.panel1.Size = new System.Drawing.Size(348, 182);
             this.panel1.TabIndex = 4;
             // 
+            // picSelection
+            // 
+            this.picSelection.Image = global::tensor_patcher_gui.Properties.Resources.selection;
+            this.picSelection.Location = new System.Drawing.Point(-100, -100);
+            this.picSelection.Name = "picSelection";
+            this.picSelection.Size = new System.Drawing.Size(16, 16);
+            this.picSelection.TabIndex = 5;
+            this.picSelection.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.picSelection);
             this.Controls.Add(this.sbar);
             this.Controls.Add(this.listCaves);
             this.Controls.Add(this.panel_MapBorder);
@@ -171,6 +183,7 @@
             this.panel_MapBorder.ResumeLayout(false);
             this.sbar.ResumeLayout(false);
             this.sbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSelection)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,6 +202,7 @@
         private System.Windows.Forms.Label label_TensorLoadStatus;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox picSelection;
     }
 }
 
