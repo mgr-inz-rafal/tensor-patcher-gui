@@ -60,6 +60,42 @@ namespace tensor_patcher_gui {
         };
         private static Dictionary<int, Bitmap> currentBrickSet = brownBricks;
 
+        private static Dictionary<byte, Bitmap> caveByteMap = new Dictionary<byte, Bitmap> {
+            { 5, Properties.Resources.brick05 },
+            { 5 + 64 + 64 + 64, Properties.Resources.brick05p },
+            { 6, Properties.Resources.brick06 },
+            { 6 + 64 + 64 + 64, Properties.Resources.brick06p },
+            { 7, Properties.Resources.brick07 },
+            { 7 + 64 + 64 + 64, Properties.Resources.brick07p },
+            { 8, Properties.Resources.brick08 },
+            { 8 + 64 + 64 + 64, Properties.Resources.brick08p },
+            { 9, Properties.Resources.brick09 },
+            { 9 + 64 + 64 + 64, Properties.Resources.brick09p },
+            { 10, Properties.Resources.brick10 },
+            { 10 + 64 + 64 + 64, Properties.Resources.brick10p },
+            { 11, Properties.Resources.brick11 },
+            { 11 + 64 + 64 + 64, Properties.Resources.brick11p },
+            { 12, Properties.Resources.brick12 },
+            { 12 + 64 + 64 + 64, Properties.Resources.brick12p },
+            { 13, Properties.Resources.brick13 },
+            { 13 + 64 + 64 + 64, Properties.Resources.brick13p },
+            { 14, Properties.Resources.brick14 },
+            { 14 + 64 + 64 + 64, Properties.Resources.brick14p },
+            { 15, Properties.Resources.brick15 },
+            { 15 + 64 + 64 + 64, Properties.Resources.brick15p },
+            { 16, Properties.Resources.brick16 },
+            { 16 + 64 + 64 + 64, Properties.Resources.brick16p },
+            { 17, Properties.Resources.brick17 },
+            { 17 + 64 + 64 + 64, Properties.Resources.brick17p },
+            { 18, Properties.Resources.brick18 },
+            { 18 + 64 + 64 + 64, Properties.Resources.brick18p },
+            { 131, Properties.Resources.obstacle00 },
+            { 132, Properties.Resources.obstacle01 },
+            { 1, Properties.Resources.ludek1 },
+            { 2, Properties.Resources.amygdala7 },
+            { 0, Properties.Resources.brick_blank },
+        };
+
         private byte[] rawMapData;
         private Button[] toolboxBrickButtons = new Button[TOTAL_BRICKS];
         private Cave[] caves = new Cave[TOTAL_MAP_COUNT];
@@ -88,6 +124,18 @@ namespace tensor_patcher_gui {
             currentBrickSet = pinkBricks;
             RepaintBrickToolset();
             ShowInfo("Pink brick set selected");
+        }
+
+        private void button_SetBlueBrickSet_Click(object sender, EventArgs e) {
+            currentBrickSet = pinkBricks;
+            RepaintBrickToolset();
+            ShowInfo("Blue brick set selected");
+        }
+
+        private void button_SetAmygdalaBrickSet_Click(object sender, EventArgs e) {
+            currentBrickSet = pinkBricks;
+            RepaintBrickToolset();
+            ShowInfo("Amygdala-colored brick set selected");
         }
 
         private void button_MapTileMouseEnter(object sender, EventArgs e) {
@@ -187,12 +235,12 @@ namespace tensor_patcher_gui {
             }
         }
 
-        private Button AddToolboxButton(int x, int y, Bitmap pic) {
+        private Button AddToolboxButton(int x, int y, Bitmap pic, float scale = 1.0f) {
             System.Windows.Forms.Button but = new System.Windows.Forms.Button();
             but.Top = y;
             but.Left = x;
             but.Height = TOOLBOX_TILE_SIZE;
-            but.Width = TOOLBOX_TILE_SIZE;
+            but.Width = Convert.ToInt32(TOOLBOX_TILE_SIZE * scale);
             but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             but.BackgroundImage = pic;
@@ -212,10 +260,15 @@ namespace tensor_patcher_gui {
             AddToolboxButton(660 + 1 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle00);
             AddToolboxButton(660 + 2 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.obstacle01);
             AddToolboxButton(660 + 3 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.amygdala7);
-            AddToolboxButton(660 + 5 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_brown)
+            
+            AddToolboxButton(660 + 4 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_brown, 0.66f)
                 .Click += new System.EventHandler(this.button_SetBrownBrickSet_Click);
-            AddToolboxButton(660 + 6 * (TOOLBOX_TILE_SIZE + 4), toolboxYPosition, Properties.Resources.brick_pink)
+            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f) * (TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_pink, 0.66f)
                 .Click += new System.EventHandler(this.button_SetPinkBrickSet_Click);
+            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f * 2) * (TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_blue, 0.66f)
+                .Click += new System.EventHandler(this.button_SetBlueBrickSet_Click);
+            AddToolboxButton(Convert.ToInt32(660 + (4 + 0.75f * 3) * (TOOLBOX_TILE_SIZE + 4)), toolboxYPosition, Properties.Resources.brick_amygdala, 0.66f)
+                .Click += new System.EventHandler(this.button_SetAmygdalaBrickSet_Click);
 
             AddToolboxBrickButtons();
         }
@@ -243,108 +296,8 @@ namespace tensor_patcher_gui {
             for (int i = 0; i < MAP_DIMENSION; ++i) {
                 for (int j = 0; j < MAP_DIMENSION; ++j) {
                     var c = i * MAP_DIMENSION + j;
-                    switch (caves[index].mapData[c]) {
-                        case 5:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick05;
-                            break;
-                        case 5 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick05p;
-                            break;
-                        case 6:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick06;
-                            break;
-                        case 6 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick06p;
-                            break;
-                        case 7:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick07;
-                            break;
-                        case 7 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick07p;
-                            break;
-                        case 8:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick08;
-                            break;
-                        case 8 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick08p;
-                            break;
-                        case 9:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick09;
-                            break;
-                        case 9 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick09p;
-                            break;
-                        case 10:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick10;
-                            break;
-                        case 10 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick10p;
-                            break;
-                        case 11:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick11;
-                            break;
-                        case 11 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick11p;
-                            break;
-                        case 12:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick12;
-                            break;
-                        case 12 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick12p;
-                            break;
-                        case 13:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick13;
-                            break;
-                        case 13 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick13p;
-                            break;
-                        case 14:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick14;
-                            break;
-                        case 14 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick14p;
-                            break;
-                        case 15:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick15;
-                            break;
-                        case 15 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick15p;
-                            break;
-                        case 16:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick16;
-                            break;
-                        case 16 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick16p;
-                            break;
-                        case 17:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick17;
-                            break;
-                        case 17 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick17p;
-                            break;
-                        case 18:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick18;
-                            break;
-                        case 18 + 64 + 64 + 64:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick18p;
-                            break;
-                        case 131:
-                            mapTiles[c].BackgroundImage = Properties.Resources.obstacle00;
-                            break;
-                        case 132:
-                            mapTiles[c].BackgroundImage = Properties.Resources.obstacle01;
-                            break;
-                        case 1:
-                            mapTiles[c].BackgroundImage = Properties.Resources.ludek1;
-                            break;
-                        case 2:
-                            mapTiles[c].BackgroundImage = Properties.Resources.amygdala7;
-                            break;
-                        default:
-                            mapTiles[c].BackgroundImage = Properties.Resources.brick_blank;
-                            break;
-                    }
-
+                    var myByte = caves[index].mapData[c];
+                    mapTiles[c].BackgroundImage = caveByteMap[caves[index].mapData[c]];
                     mapTiles[c].Visible = true;
                 }
             }
