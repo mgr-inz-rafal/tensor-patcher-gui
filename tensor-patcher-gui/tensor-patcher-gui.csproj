@@ -219,5 +219,89 @@
   <ItemGroup>
     <None Include="Resources\brick_blue.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick05a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick06a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick07a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick08a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick09a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick10a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick11a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick12a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick13a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick14a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick15a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick16a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick17a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick18a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick05b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick06b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick07b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick08b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick09b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick10b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick11b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick12b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick13b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick14b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick15b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick16b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick17b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick18b.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

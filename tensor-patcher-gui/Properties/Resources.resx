@@ -145,11 +145,23 @@
   <data name="brick05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brick05a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick05a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick05b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick05b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brick05p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick05p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick06" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick06.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick06a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick06a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick06b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick06b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick06p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick06p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,11 +169,23 @@
   <data name="brick07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brick07a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick07a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick07b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick07b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brick07p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick07p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick08" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick08.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick08a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick08a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick08b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick08b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick08p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick08p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,11 +193,23 @@
   <data name="brick09" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brick09a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick09a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick09b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick09b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brick09p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick09p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick10a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick10a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick10b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick10b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick10p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick10p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,11 +217,23 @@
   <data name="brick11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brick11a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick11a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick11b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick11b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brick11p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick11p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick12a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick12a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick12b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick12b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick12p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick12p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,11 +241,23 @@
   <data name="brick13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brick13a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick13a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick13b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick13b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brick13p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick13p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick14" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick14a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick14a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick14b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick14b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick14p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick14p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,11 +265,23 @@
   <data name="brick15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brick15a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick15a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick15b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick15b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brick15p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick15p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick16a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick16a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick16b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick16b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick16p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick16p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,11 +289,23 @@
   <data name="brick17" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="brick17a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick17a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick17b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick17b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brick17p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick17p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick18a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick18a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brick18b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brick18b.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick18p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick18p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

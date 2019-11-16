@@ -203,6 +203,26 @@ namespace tensor_patcher_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick05a {
+            get {
+                object obj = ResourceManager.GetObject("brick05a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick05b {
+            get {
+                object obj = ResourceManager.GetObject("brick05b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick05p {
             get {
                 object obj = ResourceManager.GetObject("brick05p", resourceCulture);
@@ -216,6 +236,26 @@ namespace tensor_patcher_gui.Properties {
         internal static System.Drawing.Bitmap brick06 {
             get {
                 object obj = ResourceManager.GetObject("brick06", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick06a {
+            get {
+                object obj = ResourceManager.GetObject("brick06a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick06b {
+            get {
+                object obj = ResourceManager.GetObject("brick06b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,6 +283,26 @@ namespace tensor_patcher_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick07a {
+            get {
+                object obj = ResourceManager.GetObject("brick07a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick07b {
+            get {
+                object obj = ResourceManager.GetObject("brick07b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick07p {
             get {
                 object obj = ResourceManager.GetObject("brick07p", resourceCulture);
@@ -256,6 +316,26 @@ namespace tensor_patcher_gui.Properties {
         internal static System.Drawing.Bitmap brick08 {
             get {
                 object obj = ResourceManager.GetObject("brick08", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick08a {
+            get {
+                object obj = ResourceManager.GetObject("brick08a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick08b {
+            get {
+                object obj = ResourceManager.GetObject("brick08b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,6 +363,26 @@ namespace tensor_patcher_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick09a {
+            get {
+                object obj = ResourceManager.GetObject("brick09a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick09b {
+            get {
+                object obj = ResourceManager.GetObject("brick09b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick09p {
             get {
                 object obj = ResourceManager.GetObject("brick09p", resourceCulture);
@@ -296,6 +396,26 @@ namespace tensor_patcher_gui.Properties {
         internal static System.Drawing.Bitmap brick10 {
             get {
                 object obj = ResourceManager.GetObject("brick10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick10a {
+            get {
+                object obj = ResourceManager.GetObject("brick10a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick10b {
+            get {
+                object obj = ResourceManager.GetObject("brick10b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,6 +443,26 @@ namespace tensor_patcher_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick11a {
+            get {
+                object obj = ResourceManager.GetObject("brick11a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick11b {
+            get {
+                object obj = ResourceManager.GetObject("brick11b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick11p {
             get {
                 object obj = ResourceManager.GetObject("brick11p", resourceCulture);
@@ -336,6 +476,26 @@ namespace tensor_patcher_gui.Properties {
         internal static System.Drawing.Bitmap brick12 {
             get {
                 object obj = ResourceManager.GetObject("brick12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick12a {
+            get {
+                object obj = ResourceManager.GetObject("brick12a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick12b {
+            get {
+                object obj = ResourceManager.GetObject("brick12b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,6 +523,26 @@ namespace tensor_patcher_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick13a {
+            get {
+                object obj = ResourceManager.GetObject("brick13a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick13b {
+            get {
+                object obj = ResourceManager.GetObject("brick13b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick13p {
             get {
                 object obj = ResourceManager.GetObject("brick13p", resourceCulture);
@@ -376,6 +556,26 @@ namespace tensor_patcher_gui.Properties {
         internal static System.Drawing.Bitmap brick14 {
             get {
                 object obj = ResourceManager.GetObject("brick14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick14a {
+            get {
+                object obj = ResourceManager.GetObject("brick14a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick14b {
+            get {
+                object obj = ResourceManager.GetObject("brick14b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,6 +603,26 @@ namespace tensor_patcher_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick15a {
+            get {
+                object obj = ResourceManager.GetObject("brick15a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick15b {
+            get {
+                object obj = ResourceManager.GetObject("brick15b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick15p {
             get {
                 object obj = ResourceManager.GetObject("brick15p", resourceCulture);
@@ -416,6 +636,26 @@ namespace tensor_patcher_gui.Properties {
         internal static System.Drawing.Bitmap brick16 {
             get {
                 object obj = ResourceManager.GetObject("brick16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick16a {
+            get {
+                object obj = ResourceManager.GetObject("brick16a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick16b {
+            get {
+                object obj = ResourceManager.GetObject("brick16b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -443,6 +683,26 @@ namespace tensor_patcher_gui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick17a {
+            get {
+                object obj = ResourceManager.GetObject("brick17a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick17b {
+            get {
+                object obj = ResourceManager.GetObject("brick17b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick17p {
             get {
                 object obj = ResourceManager.GetObject("brick17p", resourceCulture);
@@ -456,6 +716,26 @@ namespace tensor_patcher_gui.Properties {
         internal static System.Drawing.Bitmap brick18 {
             get {
                 object obj = ResourceManager.GetObject("brick18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick18a {
+            get {
+                object obj = ResourceManager.GetObject("brick18a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brick18b {
+            get {
+                object obj = ResourceManager.GetObject("brick18b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

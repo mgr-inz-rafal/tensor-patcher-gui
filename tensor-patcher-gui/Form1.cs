@@ -58,36 +58,96 @@ namespace tensor_patcher_gui {
             { 12, Properties.Resources.brick17p },
             { 13, Properties.Resources.brick18p },
         };
+        private static Dictionary<int, Bitmap> blueBricks = new Dictionary<int, Bitmap> {
+            { 0, Properties.Resources.brick05b },
+            { 1, Properties.Resources.brick06b },
+            { 2, Properties.Resources.brick07b },
+            { 3, Properties.Resources.brick08b },
+            { 4, Properties.Resources.brick09b },
+            { 5, Properties.Resources.brick10b },
+            { 6, Properties.Resources.brick11b },
+            { 7, Properties.Resources.brick12b },
+            { 8, Properties.Resources.brick13b },
+            { 9, Properties.Resources.brick14b },
+            { 10, Properties.Resources.brick15b },
+            { 11, Properties.Resources.brick16b },
+            { 12, Properties.Resources.brick17b },
+            { 13, Properties.Resources.brick18b },
+        };
+        private static Dictionary<int, Bitmap> amygdalaBricks = new Dictionary<int, Bitmap> {
+            { 0, Properties.Resources.brick05a },
+            { 1, Properties.Resources.brick06a },
+            { 2, Properties.Resources.brick07a },
+            { 3, Properties.Resources.brick08a },
+            { 4, Properties.Resources.brick09a },
+            { 5, Properties.Resources.brick10a },
+            { 6, Properties.Resources.brick11a },
+            { 7, Properties.Resources.brick12a },
+            { 8, Properties.Resources.brick13a },
+            { 9, Properties.Resources.brick14a },
+            { 10, Properties.Resources.brick15a },
+            { 11, Properties.Resources.brick16a },
+            { 12, Properties.Resources.brick17a },
+            { 13, Properties.Resources.brick18a },
+        };
         private static Dictionary<int, Bitmap> currentBrickSet = brownBricks;
 
         private static Dictionary<byte, Bitmap> caveByteMap = new Dictionary<byte, Bitmap> {
             { 5, Properties.Resources.brick05 },
+            { 5 + 64, Properties.Resources.brick05a },
+            { 5 + 64 + 64, Properties.Resources.brick05b },
             { 5 + 64 + 64 + 64, Properties.Resources.brick05p },
             { 6, Properties.Resources.brick06 },
+            { 6 + 64, Properties.Resources.brick06a },
+            { 6 + 64 + 64, Properties.Resources.brick06b },
             { 6 + 64 + 64 + 64, Properties.Resources.brick06p },
             { 7, Properties.Resources.brick07 },
+            { 7 + 64, Properties.Resources.brick07a },
+            { 7 + 64 + 64, Properties.Resources.brick07b },
             { 7 + 64 + 64 + 64, Properties.Resources.brick07p },
             { 8, Properties.Resources.brick08 },
+            { 8 + 64, Properties.Resources.brick08a },
+            { 8 + 64 + 64, Properties.Resources.brick08b },
             { 8 + 64 + 64 + 64, Properties.Resources.brick08p },
             { 9, Properties.Resources.brick09 },
+            { 9 + 64, Properties.Resources.brick09a },
+            { 9 + 64 + 64, Properties.Resources.brick09b },
             { 9 + 64 + 64 + 64, Properties.Resources.brick09p },
             { 10, Properties.Resources.brick10 },
+            { 10 + 64, Properties.Resources.brick10a },
+            { 10 + 64 + 64, Properties.Resources.brick10b },
             { 10 + 64 + 64 + 64, Properties.Resources.brick10p },
             { 11, Properties.Resources.brick11 },
+            { 11 + 64, Properties.Resources.brick11a },
+            { 11 + 64 + 64, Properties.Resources.brick11b },
             { 11 + 64 + 64 + 64, Properties.Resources.brick11p },
             { 12, Properties.Resources.brick12 },
+            { 12 + 64, Properties.Resources.brick12a },
+            { 12 + 64 + 64, Properties.Resources.brick12b },
             { 12 + 64 + 64 + 64, Properties.Resources.brick12p },
             { 13, Properties.Resources.brick13 },
+            { 13 + 64, Properties.Resources.brick13a },
+            { 13 + 64 + 64, Properties.Resources.brick13b },
             { 13 + 64 + 64 + 64, Properties.Resources.brick13p },
             { 14, Properties.Resources.brick14 },
+            { 14 + 64, Properties.Resources.brick14a },
+            { 14 + 64 + 64, Properties.Resources.brick14b },
             { 14 + 64 + 64 + 64, Properties.Resources.brick14p },
             { 15, Properties.Resources.brick15 },
+            { 15 + 64, Properties.Resources.brick15a },
+            { 15 + 64 + 64, Properties.Resources.brick15b },
             { 15 + 64 + 64 + 64, Properties.Resources.brick15p },
             { 16, Properties.Resources.brick16 },
+            { 16 + 64, Properties.Resources.brick16a },
+            { 16 + 64 + 64, Properties.Resources.brick16b },
             { 16 + 64 + 64 + 64, Properties.Resources.brick16p },
             { 17, Properties.Resources.brick17 },
+            { 17 + 64, Properties.Resources.brick17a },
+            { 17 + 64 + 64, Properties.Resources.brick17b },
             { 17 + 64 + 64 + 64, Properties.Resources.brick17p },
             { 18, Properties.Resources.brick18 },
+            { 18 + 64, Properties.Resources.brick18a },
+            { 18 + 64 + 64, Properties.Resources.brick18b },
             { 18 + 64 + 64 + 64, Properties.Resources.brick18p },
             { 131, Properties.Resources.obstacle00 },
             { 132, Properties.Resources.obstacle01 },
@@ -127,13 +187,13 @@ namespace tensor_patcher_gui {
         }
 
         private void button_SetBlueBrickSet_Click(object sender, EventArgs e) {
-            currentBrickSet = pinkBricks;
+            currentBrickSet = blueBricks;
             RepaintBrickToolset();
             ShowInfo("Blue brick set selected");
         }
 
         private void button_SetAmygdalaBrickSet_Click(object sender, EventArgs e) {
-            currentBrickSet = pinkBricks;
+            currentBrickSet = amygdalaBricks;
             RepaintBrickToolset();
             ShowInfo("Amygdala-colored brick set selected");
         }
