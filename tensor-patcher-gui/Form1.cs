@@ -132,6 +132,7 @@ namespace tensor_patcher_gui {
         private void LoadTensor(String fileName) {
             var reader = new System.IO.BinaryReader(File.Open(fileName, FileMode.Open));
             rawTensorFile = reader.ReadBytes(Constants.EXPECTED_FILE_SIZE);
+            reader.Close();
             Array.Copy(rawTensorFile, Constants.MAP_DATA_OFFSET, rawMapData, 0, Constants.TOTAL_MAP_DATA_SIZE);
         }
 
@@ -140,6 +141,12 @@ namespace tensor_patcher_gui {
                 caves[i] = new Cave(String.Format("Map {0} title", i + 1));
                 caves[i].mapData = new byte[Constants.MAP_DATA_BYTE_COUNT];
                 Array.Copy(rawMapData, i * Constants.MAP_DATA_BYTE_COUNT, caves[i].mapData, 0, Constants.MAP_DATA_BYTE_COUNT);
+            }
+        }
+
+        private void CollectMapData() {
+            for (int i = 0; i < Constants.TOTAL_MAP_COUNT; ++i) {
+                Array.Copy(caves[i].mapData, 0, rawMapData, i * Constants.MAP_DATA_BYTE_COUNT, Constants.MAP_DATA_BYTE_COUNT);
             }
         }
 
@@ -279,7 +286,11 @@ namespace tensor_patcher_gui {
         }
 
         private void button_Save_Click(object sender, EventArgs e) {
-
+            CollectMapData();
+            Array.Copy(rawMapData, 0, rawTensorFile, Constants.MAP_DATA_OFFSET, Constants.TOTAL_MAP_DATA_SIZE);
+            var writer = new System.IO.BinaryWriter(File.Open("c:\\Users\\prezes\\Downloads\\patched_tensor.xex", FileMode.Create));
+            writer.Write(rawTensorFile);
+            writer.Close();
         }
     }
 }
