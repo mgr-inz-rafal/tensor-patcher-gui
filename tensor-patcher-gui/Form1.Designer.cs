@@ -104,6 +104,7 @@
             this.listCaves.FullRowSelect = true;
             this.listCaves.GridLines = true;
             this.listCaves.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listCaves.HideSelection = false;
             this.listCaves.Location = new System.Drawing.Point(645, 12);
             this.listCaves.Name = "listCaves";
             this.listCaves.Size = new System.Drawing.Size(351, 418);
