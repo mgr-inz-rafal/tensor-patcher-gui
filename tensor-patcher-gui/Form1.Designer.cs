@@ -42,6 +42,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picSelection = new System.Windows.Forms.PictureBox();
+            this.button_Save = new System.Windows.Forms.Button();
             this.panel_MapBorder.SuspendLayout();
             this.sbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSelection)).BeginInit();
@@ -166,11 +167,22 @@
             this.picSelection.TabIndex = 5;
             this.picSelection.TabStop = false;
             // 
+            // button_Save
+            // 
+            this.button_Save.Location = new System.Drawing.Point(145, 652);
+            this.button_Save.Name = "button_Save";
+            this.button_Save.Size = new System.Drawing.Size(108, 23);
+            this.button_Save.TabIndex = 6;
+            this.button_Save.Text = "Save Tensor";
+            this.button_Save.UseVisualStyleBackColor = true;
+            this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.button_Save);
             this.Controls.Add(this.picSelection);
             this.Controls.Add(this.sbar);
             this.Controls.Add(this.listCaves);
@@ -204,6 +216,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picSelection;
+        private System.Windows.Forms.Button button_Save;
     }
 }
 

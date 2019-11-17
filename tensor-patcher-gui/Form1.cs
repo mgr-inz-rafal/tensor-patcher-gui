@@ -9,7 +9,8 @@ namespace tensor_patcher_gui {
     public partial class MainForm : Form {
         private static Dictionary<int, Bitmap> currentBrickSet = Constants.brownBricks;
 
-        private byte[] rawMapData;
+        private byte[] rawTensorFile = new byte[Constants.EXPECTED_FILE_SIZE];
+        private byte[] rawMapData = new byte[Constants.TOTAL_MAP_DATA_SIZE];
         private Button[] toolboxBrickButtons = new Button[Constants.TOTAL_BRICKS];
         private Cave[] caves = new Cave[Constants.TOTAL_MAP_COUNT];
         private Button[] mapTiles = new Button[Constants.MAP_DATA_BYTE_COUNT];
@@ -108,12 +109,10 @@ namespace tensor_patcher_gui {
         }
 
         private Tuple<bool, String> ValidateTensorBinary(String file) {
-            const int EXPECTED_FILE_SIZE = 49506;
-
             // Size validation would be enough
             var len = new System.IO.FileInfo(file).Length;
-            if (len != EXPECTED_FILE_SIZE) {
-                return new Tuple<bool, String>(false, String.Format("Incorrect file size ({1} bytes expected, {0} bytes found)", len, EXPECTED_FILE_SIZE));
+            if (len != Constants.EXPECTED_FILE_SIZE) {
+                return new Tuple<bool, String>(false, String.Format("Incorrect file size ({1} bytes expected, {0} bytes found)", len, Constants.EXPECTED_FILE_SIZE));
             }
 
             return new Tuple<bool, String>(true, "");
@@ -131,10 +130,9 @@ namespace tensor_patcher_gui {
         }
 
         private void LoadTensor(String fileName) {
-            const int MAP_DATA_OFFSET = 0xA022;
             var reader = new System.IO.BinaryReader(File.Open(fileName, FileMode.Open));
-            reader.BaseStream.Seek(MAP_DATA_OFFSET, SeekOrigin.Begin);
-            rawMapData = reader.ReadBytes(Constants.TOTAL_MAP_DATA_SIZE);
+            rawTensorFile = reader.ReadBytes(Constants.EXPECTED_FILE_SIZE);
+            Array.Copy(rawTensorFile, Constants.MAP_DATA_OFFSET, rawMapData, 0, Constants.TOTAL_MAP_DATA_SIZE);
         }
 
         private void ParseMapData() {
@@ -278,6 +276,10 @@ namespace tensor_patcher_gui {
             }
             selectedMapIndex = listCaves.SelectedIndices[0];
             ShowSelectedMapLayout();
+        }
+
+        private void button_Save_Click(object sender, EventArgs e) {
+
         }
     }
 }

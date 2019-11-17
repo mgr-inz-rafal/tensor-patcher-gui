@@ -15,6 +15,10 @@ namespace tensor_patcher_gui {
         public const int TOTAL_BRICK_ROWS = 2;
         public const int TOOLBOX_TILE_SIZE = 42;
 
+        // Misc
+        public const int EXPECTED_FILE_SIZE = 49506;
+        public const int MAP_DATA_OFFSET = 0xA022;
+
         public static Dictionary<int, Bitmap> brownBricks = new Dictionary<int, Bitmap> {
             { 0, Properties.Resources.brick05 },
             { 1, Properties.Resources.brick06 },
