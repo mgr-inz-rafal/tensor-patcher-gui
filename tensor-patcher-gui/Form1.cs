@@ -14,6 +14,7 @@ namespace tensor_patcher_gui {
         private Cave[] caves = new Cave[Constants.TOTAL_MAP_COUNT];
         private Button[] mapTiles = new Button[Constants.MAP_DATA_BYTE_COUNT];
         private byte? selectedCaveByte;
+        private int selectedMapIndex;
 
         public MainForm() {
             InitializeComponent();
@@ -93,6 +94,7 @@ namespace tensor_patcher_gui {
                     }
                 }
                 t.CaveByte = Convert.ToByte(selectedCaveByte + caveByteModifier);
+                caves[selectedMapIndex].mapData[t.Index] = t.CaveByte ?? 0;
                 b.BackgroundImage = Constants.caveByteMap[t.CaveByte.Value];
             }
         }
@@ -258,13 +260,13 @@ namespace tensor_patcher_gui {
             }
         }
 
-        private void ShowMapLayout(int index) {
+        private void ShowSelectedMapLayout() {
             for (int i = 0; i < Constants.MAP_DIMENSION; ++i) {
                 for (int j = 0; j < Constants.MAP_DIMENSION; ++j) {
                     var c = i * Constants.MAP_DIMENSION + j;
-                    var myByte = caves[index].mapData[c];
+                    var myByte = caves[selectedMapIndex].mapData[c];
                     ((ButtonTag)mapTiles[c].Tag).CaveByte = myByte;
-                    mapTiles[c].BackgroundImage = Constants.caveByteMap[caves[index].mapData[c]];
+                    mapTiles[c].BackgroundImage = Constants.caveByteMap[caves[selectedMapIndex].mapData[c]];
                     mapTiles[c].Visible = true;
                 }
             }
@@ -274,8 +276,8 @@ namespace tensor_patcher_gui {
             if (listCaves.SelectedIndices.Count == 0) {
                 return;
             }
-            var index = listCaves.SelectedIndices[0];
-            ShowMapLayout(index);
+            selectedMapIndex = listCaves.SelectedIndices[0];
+            ShowSelectedMapLayout();
         }
     }
 }
