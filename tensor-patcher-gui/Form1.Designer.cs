@@ -29,6 +29,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel_MapBorder = new System.Windows.Forms.Panel();
             this.label_TensorLoadStatus = new System.Windows.Forms.Label();
             this.button_LocateTensorManually = new System.Windows.Forms.Button();
@@ -218,6 +219,7 @@
             this.Controls.Add(this.panel_MapBorder);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Tensor Trzaskowskiego Cave Editor by mgr inż. Rafał";
