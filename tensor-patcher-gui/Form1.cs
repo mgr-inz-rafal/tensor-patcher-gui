@@ -287,6 +287,7 @@ namespace tensor_patcher_gui {
                 return;
             }
             selectedMapIndex = listCaves.SelectedIndices[0];
+            ShowInfo(String.Format("Map {0} selected", selectedMapIndex));
             ShowSelectedMapLayout();
         }
 
@@ -302,6 +303,7 @@ namespace tensor_patcher_gui {
                 var writer = new BinaryWriter(File.Open(saveFileDialog.FileName, FileMode.Create));
                 writer.Write(rawTensorFile);
                 writer.Close();
+                ShowInfo(String.Format("Tensor saved to: {0}", saveFileDialog.FileName));
             }
             catch (IOException err) {
                 ShowError(String.Format("Unable to save file: {0}", err.Message));
