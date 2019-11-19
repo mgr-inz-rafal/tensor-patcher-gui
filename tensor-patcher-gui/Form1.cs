@@ -155,7 +155,7 @@ namespace tensor_patcher_gui {
                 var item = listCaves.Items.Add(String.Format("{0}", i + 1));
                 item.SubItems.Add(caves[i].Name);
             }
-            this.columnHeader3.Width = -2;
+            this.columnHeader2.Width = -2;
         }
 
         private void button_LocateTensorManually_Click(object sender, EventArgs e) {
@@ -175,9 +175,8 @@ namespace tensor_patcher_gui {
 
             label_TensorLoadStatus.Text = "Select map and enjoy ➔";
             label_TensorLoadStatus.ForeColor = Color.Green;
-            button_LocateTensorAutomaticaly.Visible = false;
-            button_LocateTensorManually.Visible = false;
 
+            button_Save.Enabled = true;
             ShowInfo("Tensor.xex loaded successfully");
         }
 
@@ -288,7 +287,12 @@ namespace tensor_patcher_gui {
         private void button_Save_Click(object sender, EventArgs e) {
             CollectMapData();
             Array.Copy(rawMapData, 0, rawTensorFile, Constants.MAP_DATA_OFFSET, Constants.TOTAL_MAP_DATA_SIZE);
-            var writer = new System.IO.BinaryWriter(File.Open("c:\\Users\\prezes\\Downloads\\patched_tensor.xex", FileMode.Create));
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK) {
+                return;
+            }
+
+            var writer = new System.IO.BinaryWriter(File.Open(saveFileDialog.FileName, FileMode.Create));
             writer.Write(rawTensorFile);
             writer.Close();
         }

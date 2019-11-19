@@ -31,18 +31,17 @@
         private void InitializeComponent() {
             this.panel_MapBorder = new System.Windows.Forms.Panel();
             this.label_TensorLoadStatus = new System.Windows.Forms.Label();
-            this.button_LocateTensorAutomaticaly = new System.Windows.Forms.Button();
             this.button_LocateTensorManually = new System.Windows.Forms.Button();
             this.listCaves = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sbar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picSelection = new System.Windows.Forms.PictureBox();
             this.button_Save = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.panel_MapBorder.SuspendLayout();
             this.sbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSelection)).BeginInit();
@@ -53,8 +52,6 @@
             this.panel_MapBorder.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel_MapBorder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel_MapBorder.Controls.Add(this.label_TensorLoadStatus);
-            this.panel_MapBorder.Controls.Add(this.button_LocateTensorAutomaticaly);
-            this.panel_MapBorder.Controls.Add(this.button_LocateTensorManually);
             this.panel_MapBorder.Location = new System.Drawing.Point(12, 12);
             this.panel_MapBorder.Name = "panel_MapBorder";
             this.panel_MapBorder.Size = new System.Drawing.Size(611, 616);
@@ -73,25 +70,14 @@
             this.label_TensorLoadStatus.Text = "Tensor not loaded";
             this.label_TensorLoadStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button_LocateTensorAutomaticaly
-            // 
-            this.button_LocateTensorAutomaticaly.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_LocateTensorAutomaticaly.Location = new System.Drawing.Point(177, 287);
-            this.button_LocateTensorAutomaticaly.Name = "button_LocateTensorAutomaticaly";
-            this.button_LocateTensorAutomaticaly.Size = new System.Drawing.Size(280, 34);
-            this.button_LocateTensorAutomaticaly.TabIndex = 2;
-            this.button_LocateTensorAutomaticaly.Text = "Autodetect \"Tensor.xex\" location...";
-            this.button_LocateTensorAutomaticaly.UseVisualStyleBackColor = true;
-            this.button_LocateTensorAutomaticaly.Click += new System.EventHandler(this.button_LocateTensorAutomaticaly_Click);
-            // 
             // button_LocateTensorManually
             // 
-            this.button_LocateTensorManually.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_LocateTensorManually.Location = new System.Drawing.Point(177, 247);
+            this.button_LocateTensorManually.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_LocateTensorManually.Location = new System.Drawing.Point(888, 82);
             this.button_LocateTensorManually.Name = "button_LocateTensorManually";
-            this.button_LocateTensorManually.Size = new System.Drawing.Size(280, 34);
+            this.button_LocateTensorManually.Size = new System.Drawing.Size(100, 23);
             this.button_LocateTensorManually.TabIndex = 1;
-            this.button_LocateTensorManually.Text = "Loacte \"Tensor.xex\"...";
+            this.button_LocateTensorManually.Text = "&Load...";
             this.button_LocateTensorManually.UseVisualStyleBackColor = true;
             this.button_LocateTensorManually.Click += new System.EventHandler(this.button_LocateTensorManually_Click);
             // 
@@ -100,15 +86,14 @@
             this.listCaves.AutoArrange = false;
             this.listCaves.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader2});
             this.listCaves.FullRowSelect = true;
             this.listCaves.GridLines = true;
             this.listCaves.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listCaves.HideSelection = false;
-            this.listCaves.Location = new System.Drawing.Point(645, 12);
+            this.listCaves.Location = new System.Drawing.Point(645, 82);
             this.listCaves.Name = "listCaves";
-            this.listCaves.Size = new System.Drawing.Size(351, 418);
+            this.listCaves.Size = new System.Drawing.Size(220, 348);
             this.listCaves.TabIndex = 2;
             this.listCaves.UseCompatibleStateImageBehavior = false;
             this.listCaves.View = System.Windows.Forms.View.Details;
@@ -117,21 +102,18 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "#";
+            this.columnHeader1.Width = 25;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Name";
             this.columnHeader2.Width = 213;
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Status";
-            // 
             // sbar
             // 
             this.sbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.sbar.Location = new System.Drawing.Point(0, 707);
+            this.sbar.Location = new System.Drawing.Point(0, 639);
             this.sbar.Name = "sbar";
             this.sbar.Size = new System.Drawing.Size(1008, 22);
             this.sbar.SizingGrip = false;
@@ -169,20 +151,29 @@
             // 
             // button_Save
             // 
-            this.button_Save.Location = new System.Drawing.Point(145, 652);
+            this.button_Save.Enabled = false;
+            this.button_Save.Location = new System.Drawing.Point(888, 115);
             this.button_Save.Name = "button_Save";
-            this.button_Save.Size = new System.Drawing.Size(108, 23);
+            this.button_Save.Size = new System.Drawing.Size(100, 23);
             this.button_Save.TabIndex = 6;
-            this.button_Save.Text = "Save Tensor";
+            this.button_Save.Text = "&Save...";
             this.button_Save.UseVisualStyleBackColor = true;
             this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "xex";
+            this.saveFileDialog.FileName = "Tensor.xex";
+            this.saveFileDialog.Filter = "Atari executables (*.xex)|*.xex";
+            this.saveFileDialog.Title = "Choose location of your fresh, new \"Tensor.xex\"...";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1008, 661);
             this.Controls.Add(this.button_Save);
+            this.Controls.Add(this.button_LocateTensorManually);
             this.Controls.Add(this.picSelection);
             this.Controls.Add(this.sbar);
             this.Controls.Add(this.listCaves);
@@ -207,16 +198,15 @@
         private System.Windows.Forms.ListView listCaves;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.StatusStrip sbar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button button_LocateTensorManually;
-        private System.Windows.Forms.Button button_LocateTensorAutomaticaly;
         private System.Windows.Forms.Label label_TensorLoadStatus;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picSelection;
         private System.Windows.Forms.Button button_Save;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
