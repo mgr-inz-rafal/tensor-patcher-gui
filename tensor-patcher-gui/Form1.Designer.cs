@@ -39,11 +39,15 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.picSelection = new System.Windows.Forms.PictureBox();
             this.button_Save = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picSelection = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel_MapBorder.SuspendLayout();
             this.sbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelection)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +77,7 @@
             // button_LocateTensorManually
             // 
             this.button_LocateTensorManually.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_LocateTensorManually.Location = new System.Drawing.Point(888, 82);
+            this.button_LocateTensorManually.Location = new System.Drawing.Point(888, 376);
             this.button_LocateTensorManually.Name = "button_LocateTensorManually";
             this.button_LocateTensorManually.Size = new System.Drawing.Size(100, 23);
             this.button_LocateTensorManually.TabIndex = 1;
@@ -91,9 +95,9 @@
             this.listCaves.GridLines = true;
             this.listCaves.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listCaves.HideSelection = false;
-            this.listCaves.Location = new System.Drawing.Point(645, 82);
+            this.listCaves.Location = new System.Drawing.Point(645, 121);
             this.listCaves.Name = "listCaves";
-            this.listCaves.Size = new System.Drawing.Size(220, 348);
+            this.listCaves.Size = new System.Drawing.Size(220, 309);
             this.listCaves.TabIndex = 2;
             this.listCaves.UseCompatibleStateImageBehavior = false;
             this.listCaves.View = System.Windows.Forms.View.Details;
@@ -140,19 +144,10 @@
             this.panel1.Size = new System.Drawing.Size(348, 182);
             this.panel1.TabIndex = 4;
             // 
-            // picSelection
-            // 
-            this.picSelection.Image = global::tensor_patcher_gui.Properties.Resources.selection;
-            this.picSelection.Location = new System.Drawing.Point(-100, -100);
-            this.picSelection.Name = "picSelection";
-            this.picSelection.Size = new System.Drawing.Size(16, 16);
-            this.picSelection.TabIndex = 5;
-            this.picSelection.TabStop = false;
-            // 
             // button_Save
             // 
             this.button_Save.Enabled = false;
-            this.button_Save.Location = new System.Drawing.Point(888, 115);
+            this.button_Save.Location = new System.Drawing.Point(888, 407);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(100, 23);
             this.button_Save.TabIndex = 6;
@@ -167,11 +162,54 @@
             this.saveFileDialog.Filter = "Atari executables (*.xex)|*.xex";
             this.saveFileDialog.Title = "Choose location of your fresh, new \"Tensor.xex\"...";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::tensor_patcher_gui.Properties.Resources.title;
+            this.pictureBox1.Location = new System.Drawing.Point(658, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(344, 92);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // picSelection
+            // 
+            this.picSelection.Image = global::tensor_patcher_gui.Properties.Resources.selection;
+            this.picSelection.Location = new System.Drawing.Point(-100, -100);
+            this.picSelection.Name = "picSelection";
+            this.picSelection.Size = new System.Drawing.Size(16, 16);
+            this.picSelection.TabIndex = 5;
+            this.picSelection.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(875, 121);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 91);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Tensor Trzaskowskiego\r\nMap Editor\r\nby\r\nmgr inż. Rafał\r\n \r\nCopyright (c) 2019\r\nMag" +
+    "ister Labs";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(876, 228);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(120, 13);
+            this.linkLabel1.TabIndex = 10;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "github.com/mgr-inz-rafal";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 661);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button_Save);
             this.Controls.Add(this.button_LocateTensorManually);
             this.Controls.Add(this.picSelection);
@@ -187,6 +225,7 @@
             this.panel_MapBorder.ResumeLayout(false);
             this.sbar.ResumeLayout(false);
             this.sbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelection)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,6 +246,9 @@
         private System.Windows.Forms.PictureBox picSelection;
         private System.Windows.Forms.Button button_Save;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

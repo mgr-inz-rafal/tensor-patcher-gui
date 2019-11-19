@@ -309,5 +309,9 @@ namespace tensor_patcher_gui {
                 ShowError(String.Format("Unable to save file: {0}", err.Message));
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start("https://github.com/mgr-inz-rafal");
+        }
     }
 }
