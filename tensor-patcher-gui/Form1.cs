@@ -72,7 +72,7 @@ namespace tensor_patcher_gui {
         }
 
         private bool IsBrick(byte? caveByte) {
-            if(caveByte == null) {
+            if (caveByte == null) {
                 return false;
             }
             return caveByte != 1 && caveByte != 2 && caveByte != 131 && caveByte != 132 && caveByte != 0;
@@ -83,7 +83,7 @@ namespace tensor_patcher_gui {
             ButtonTag t = (ButtonTag)b.Tag;
             if (selectedCaveByte != null) {
                 byte caveByteModifier = 0;
-                if(IsBrick(selectedCaveByte)) {
+                if (IsBrick(selectedCaveByte)) {
                     if (currentBrickSet == Constants.pinkBricks) {
                         caveByteModifier = 64 + 64 + 64;
                     }
@@ -110,7 +110,7 @@ namespace tensor_patcher_gui {
 
         private Tuple<bool, String> ValidateTensorBinary(String file) {
             // Size validation would be enough
-            var len = new System.IO.FileInfo(file).Length;
+            var len = new FileInfo(file).Length;
             if (len != Constants.EXPECTED_FILE_SIZE) {
                 return new Tuple<bool, String>(false, String.Format("Incorrect file size ({1} bytes expected, {0} bytes found)", len, Constants.EXPECTED_FILE_SIZE));
             }
@@ -130,10 +130,16 @@ namespace tensor_patcher_gui {
         }
 
         private void LoadTensor(String fileName) {
-            var reader = new System.IO.BinaryReader(File.Open(fileName, FileMode.Open));
-            rawTensorFile = reader.ReadBytes(Constants.EXPECTED_FILE_SIZE);
-            reader.Close();
-            Array.Copy(rawTensorFile, Constants.MAP_DATA_OFFSET, rawMapData, 0, Constants.TOTAL_MAP_DATA_SIZE);
+            try {
+                var reader = new System.IO.BinaryReader(File.Open(fileName, FileMode.Open));
+                rawTensorFile = reader.ReadBytes(Constants.EXPECTED_FILE_SIZE);
+                reader.Close();
+                Array.Copy(rawTensorFile, Constants.MAP_DATA_OFFSET, rawMapData, 0, Constants.TOTAL_MAP_DATA_SIZE);
+            }
+            catch (IOException err) {
+                ShowError(String.Format("Unable to load file: {0}", err.Message));
+                return;
+            }
         }
 
         private void ParseMapData() {
@@ -292,9 +298,14 @@ namespace tensor_patcher_gui {
                 return;
             }
 
-            var writer = new System.IO.BinaryWriter(File.Open(saveFileDialog.FileName, FileMode.Create));
-            writer.Write(rawTensorFile);
-            writer.Close();
+            try {
+                var writer = new BinaryWriter(File.Open(saveFileDialog.FileName, FileMode.Create));
+                writer.Write(rawTensorFile);
+                writer.Close();
+            }
+            catch (IOException err) {
+                ShowError(String.Format("Unable to save file: {0}", err.Message));
+            }
         }
     }
 }
