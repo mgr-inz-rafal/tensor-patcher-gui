@@ -222,7 +222,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Tensor Trzaskowskiego Cave Editor by mgr inż. Rafał (v 1.0)";
+            this.Text = "Tensor Trzaskowskiego Cave Editor by mgr inż. Rafał (v 1.1)";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel_MapBorder.ResumeLayout(false);
             this.sbar.ResumeLayout(false);
