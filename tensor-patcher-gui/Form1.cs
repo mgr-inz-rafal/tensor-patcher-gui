@@ -78,25 +78,34 @@ namespace tensor_patcher_gui {
             return caveByte != 1 && caveByte != 2 && caveByte != 131 && caveByte != 132 && caveByte != 0;
         }
 
-        private void button_MapTileButton_Click(object sender, EventArgs e) {
+        private void button_MapTileButton_Click(object sender, MouseEventArgs e) {
             Button b = (Button)sender;
             ButtonTag t = (ButtonTag)b.Tag;
-            if (selectedCaveByte != null) {
-                byte caveByteModifier = 0;
-                if (IsBrick(selectedCaveByte)) {
-                    if (currentBrickSet == Constants.pinkBricks) {
-                        caveByteModifier = 64 + 64 + 64;
+            switch (e.Button) {
+                case MouseButtons.Right:
+                    t.CaveByte = 0;
+                    caves[selectedMapIndex].mapData[t.Index] = 0;
+                    b.BackgroundImage = Properties.Resources.brick_blank;
+                    break;
+                case MouseButtons.Left:
+                    if (selectedCaveByte != null) {
+                        byte caveByteModifier = 0;
+                        if (IsBrick(selectedCaveByte)) {
+                            if (currentBrickSet == Constants.pinkBricks) {
+                                caveByteModifier = 64 + 64 + 64;
+                            }
+                            else if (currentBrickSet == Constants.blueBricks) {
+                                caveByteModifier = 64 + 64;
+                            }
+                            else if (currentBrickSet == Constants.amygdalaBricks) {
+                                caveByteModifier = 64;
+                            }
+                        }
+                        t.CaveByte = Convert.ToByte(selectedCaveByte + caveByteModifier);
+                        caves[selectedMapIndex].mapData[t.Index] = t.CaveByte ?? 0;
+                        b.BackgroundImage = Constants.caveByteMap[t.CaveByte.Value];
                     }
-                    else if (currentBrickSet == Constants.blueBricks) {
-                        caveByteModifier = 64 + 64;
-                    }
-                    else if (currentBrickSet == Constants.amygdalaBricks) {
-                        caveByteModifier = 64;
-                    }
-                }
-                t.CaveByte = Convert.ToByte(selectedCaveByte + caveByteModifier);
-                caves[selectedMapIndex].mapData[t.Index] = t.CaveByte ?? 0;
-                b.BackgroundImage = Constants.caveByteMap[t.CaveByte.Value];
+                    break;
             }
         }
 
@@ -200,7 +209,7 @@ namespace tensor_patcher_gui {
                     but.MouseEnter += new System.EventHandler(this.button_MapTileMouseEnter);
                     but.MouseLeave += new System.EventHandler(this.button_MapTileMouseLeave);
                     but.Tag = new ButtonTag(but.Left, but.Top, i * Constants.MAP_DIMENSION + j);
-                    but.Click += new System.EventHandler(this.button_MapTileButton_Click);
+                    but.MouseUp += new MouseEventHandler(this.button_MapTileButton_Click);
 
                     mapTiles[((ButtonTag)but.Tag).Index] = but;
 
@@ -313,5 +322,6 @@ namespace tensor_patcher_gui {
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             System.Diagnostics.Process.Start("https://github.com/mgr-inz-rafal");
         }
+
     }
 }
